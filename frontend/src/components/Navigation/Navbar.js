@@ -5,6 +5,7 @@ import '../Navigation/Navbar.css'
 import homeIcon from '../../assets/icons/home.png'
 import categoriesIcon from '../../assets/icons/categories.png'
 import starIcon from '../../assets/icons/star.png'
+import historyIcon from '../../assets/icons/history.png'
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
@@ -35,25 +36,28 @@ const Navbar = () => {
             <p className='NavigationProfileBtn'>Sign In</p>
         </div>
       </div>
-      {/* <div className='NavigationContainer2'>
-        <div className='NavigationContainer22'>
-          <div className='NavigationDrawerBlock'>
-              <img src={homeIcon} className="NavigationDrawerBlockIcon"/>
-              <a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>
-              <p>Home</p>
-          </div>
-          <div className='NavigationDrawerBlock'>
-              <img src={categoriesIcon} className="NavigationDrawerBlockIcon"/>
-              <a href="https://www.flaticon.com/free-icons/application" title="application icons">Application icons created by Dooder - Flaticon</a>
-              <p>Categories</p>
-          </div>
-          <div className='NavigationDrawerBlock'>
-              <img src={starIcon} className="NavigationDrawerBlockIcon"/>
-              <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a>
-              <p>Favorite</p>
-          </div>
+      <div className='NavigationDrawer1' style={show ? {display: 'flex'} : {display: 'none'}}>
+            <div className='NavigationDrawerBlock1'>
+                <img src={homeIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a> */}
+                <p>Home</p>
+            </div>
+            <div className='NavigationDrawerBlock1'>
+                <img src={categoriesIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/application" title="application icons">Application icons created by Dooder - Flaticon</a> */}
+                <p>Categories</p>
+            </div>
+            <div className='NavigationDrawerBlock1'>
+                <img src={historyIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by joalfa - Flaticon</a> */}
+                <p>History</p>
+            </div>
+            <div className='NavigationDrawerBlock1' id='NavigationDrawerBlockBreak1'>
+                <img src={starIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
+                <p>Favorite</p>
+            </div>
         </div>
-      </div> */}
     </nav>
   )
 }

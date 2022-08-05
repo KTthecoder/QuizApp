@@ -84,7 +84,7 @@ const HomePage = () => {
                 </div>
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
-                        <h1>Popular Quizes</h1>
+                        <h1>English Quizes</h1>
                         <div className='HomeHeaderCreateDiv'>
                             <p>See more</p>
                         </div>
@@ -108,7 +108,7 @@ const HomePage = () => {
                 </div>
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
-                        <h1>Popular Quizes</h1>
+                        <h1>IT Quizes</h1>
                         <div className='HomeHeaderCreateDiv'>
                             <p>See more</p>
                         </div>
@@ -131,7 +131,6 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-           
         </div>
     )
 }

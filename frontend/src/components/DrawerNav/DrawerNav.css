@@ -12,6 +12,7 @@
     background-color: #222;
     height: auto;
     height: 100vh;
+    
 }
 
 .NavigationDrawerBlock{
@@ -21,6 +22,7 @@
     width: 100%;
     padding: 3px 0px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .NavigationDrawerBlock:hover{
@@ -48,7 +50,6 @@
 #NavigationDrawerBlockBreak{
     border-bottom: 2px solid rgb(48, 48, 48);
 }
-
 
 @media(max-width: 950px){
     .NavigationDrawer{

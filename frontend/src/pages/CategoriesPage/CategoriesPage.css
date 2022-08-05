@@ -1,0 +1,83 @@
+.CategoriesHome{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.CategoriesContainer{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 99px;
+    flex-direction: column;
+}
+
+.CategoriesHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+}
+
+.CategoriesHeader h1{
+    color: rgb(39, 139, 119);
+}
+
+.CategoriesCategoriesDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.CategoriesBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    background-color: green;
+    margin: 40px 12px 0px 12px;
+    flex-direction: column;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.CategoriesBlock:hover{
+    transform: scale(1.07);
+}
+
+.CategoriesIcon{
+    width: 80px;
+}
+
+.CategoriesBlock p{
+    color: white;
+    font-size: 17px;
+}
+
+@media(max-width: 1200px){
+    .CategoriesCategoriesDiv{
+        justify-content: center;
+    }
+}
+
+@media(max-width: 660px){
+    .CategoriesHeader{
+        margin-top: 30px;
+    }
+
+    .CategoriesCategoriesDiv{
+        justify-content: space-around;
+    }
+}

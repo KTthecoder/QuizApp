@@ -115,6 +115,14 @@
     z-index: 1;
 }
 
+.NavigationLogoContainer1{
+    display: none;
+}
+
+.NavigationDrawerBlock1{
+    display: none;
+}
+
 @media(max-width: 1040px){
     .NavigationSearchBar{
         width: 350px;

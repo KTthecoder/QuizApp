@@ -29,6 +29,9 @@
     align-items: flex-start;
     width: 100%;
     margin-bottom: 70px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
 }
 
 .HomeHeader h1{
@@ -59,7 +62,23 @@
     border-radius: 20px;
 }
 
-.HomeBlocksContainer{
+.HomeBlocksContainer1{
+    display: flex;
+    width: 100%;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.HomeBlocksContainer1 .HomeBlocksDiv:nth-child(6){
+    display: none;
+}
+
+.HomeBlocksContainer1 .HomeBlocksDiv:nth-child(5){
+    display: none;
+}
+
+.HomeBlocksContainer2{
     display: flex;
     width: 100%;
     flex-flow: wrap;
@@ -70,13 +89,19 @@
 .HomeBlocksDiv{
     width: 340px;
     height: 440px;
-    margin: 0px 0px 50px 0px;
+    margin: 0px 12px 50px 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
     background-color: rgb(44, 44, 44);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.HomeBlocksDiv:hover{
+    transform: scale(1.05);
 }
 
 .HomeBlocksImg{
@@ -87,7 +112,7 @@
     background-image: url('../../assets//images/react-logo.png');
     background-size: cover;
     background-position: center;
-    height: 50%;
+    height: 55%;
     padding: 0px;
     margin: 0px;
     border-radius: 20px 20px 0px 0px;
@@ -131,3 +156,162 @@
     margin-top: 50px;
 }
 
+.HomeBlocksContainer2 .HomeBlocksDiv:nth-child(9){
+    display: none;
+}
+
+@media(max-width: 1880px){
+    .HomeBlocksDiv{
+        width: 320px;
+    }
+}
+
+@media(max-width: 1787px){
+    .HomeBlocksDiv{
+        width: 360px;
+    }
+
+    .HomeBlocksContainer1 .HomeBlocksDiv:nth-child(6){
+        display: flex;
+    }
+    
+    .HomeBlocksContainer1 .HomeBlocksDiv:nth-child(5){
+        display: flex;
+    }
+
+    .HomeBlocksContainer2 .HomeBlocksDiv:nth-child(9){
+        display: flex;
+    }
+}
+
+@media(max-width: 1532px){
+    .HomeBlocksDiv{
+        width: 320px;
+    }
+}
+
+@media(max-width: 1395px){
+    .HomeBlocksDiv{
+        width: 300px;
+    }
+}
+
+@media(max-width: 1326px){
+    .HomeBlocksDiv{
+        width: 280px;
+    }
+}
+
+@media(max-width: 1258px){
+    .HomeBlocksDiv{
+        width: 350px;
+    }
+
+    .HomeBlocksContainer2 .HomeBlocksDiv:nth-child(9){
+        display: none;
+    }
+
+    .HomeBlocksContainer1 .HomeBlocksDiv:nth-child(6){
+        display: none;
+    }
+    
+    .HomeBlocksContainer1 .HomeBlocksDiv:nth-child(5){
+        display: none;
+    }
+
+    .HomeBlocksContainer1{
+        justify-content: space-around;
+    }
+
+    .HomeBlocksContainer2{
+        justify-content: space-around;
+    }
+}
+
+@media(max-width: 1080px){
+    .HomeBlocksDiv{
+        width: 330px;
+    }
+
+    .HomeBlocksContainer1{
+        justify-content: space-between;
+    }
+
+    .HomeBlocksContainer2{
+        justify-content: space-between;
+    }
+}
+
+@media(max-width: 1020px){
+    .HomeBlocksDiv{
+        width: 300px;
+    }
+}
+
+@media(max-width: 950px){
+    .HomeBlocksDiv{
+        width: 350px;
+    }
+}
+
+@media(max-width: 831px){
+    .HomeBlocksDiv{
+        width: 320px;
+    }
+}
+
+@media(max-width: 765px){
+    .HomeBlocksDiv{
+        width: 300px;
+    }
+}
+
+@media(max-width: 720px){
+    .HomeBlocksDiv{
+        width: 45%;
+    }
+}
+
+@media(max-width: 660px){
+    .HomeBlocksDiv{
+        width: 45%;
+    }
+
+    .HomeContainer1{
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 600px){
+    .HomeBlocksDiv{
+        width: 360px;
+    }
+
+    .HomeBlocksContainer1{
+        justify-content: center;
+    }
+
+    .HomeBlocksContainer2{
+        justify-content: center;
+    }
+}
+
+@media(max-width: 430px){
+    .HomeBlocksDiv{
+        width: 90%;
+    }
+}
+
+@media(max-width: 400px){
+    .HomeHeader{
+        flex-direction: column;
+    }
+
+    .HomeHeader{
+        flex-direction: column;
+    }
+
+    .HomeHeaderCreateDiv{
+        margin-top: 25px;
+    }
+}

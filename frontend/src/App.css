@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap');
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
 
 body{
   margin: 0px;
   padding: 0px;
   font-family: 'Noto Sans', sans-serif;
   background-color: #222;
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
 }

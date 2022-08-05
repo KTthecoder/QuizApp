@@ -1,11 +1,21 @@
 .NavigationContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.NavigationContainer1{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     background-color: #222;
     border-bottom: 2px solid rgb(48, 48, 48);
     height: 75px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .NavigationLogoContainer{
@@ -13,21 +23,34 @@
     justify-content: flex-start;
     align-items: center;
     width: 20%;
+    margin-left: 30px;
 }
 
 .NavigationMenuBtn{
-    width: 40px;
+    width: 30px;
     cursor: pointer;
 }
 
 .NavigationLogoContainer h1{
     color: white;
     font-size: 20px;
-    margin: 0px 0px 0px 20px;
+    margin: 0px 0px 0px 15px;
     padding: 0px;
 }
 
 .NavigationLogoContainer h1 span{
+    color: rgb(39, 139, 119);
+    font-size: 21px;
+}
+
+.DrawerSection1Block h1{
+    color: white;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    padding: 0px;
+}
+
+.DrawerSection1Block h1 span{
     color: rgb(39, 139, 119);
     font-size: 21px;
 }
@@ -44,7 +67,7 @@
     padding: 12px 15px;
     font-size: 16px;
     box-sizing: border-box;
-    background-color: #111;
+    background-color: #111; 
     border: 1px solid rgb(48, 48, 48);
     outline: none;
     color: white;
@@ -69,6 +92,66 @@
     font-weight: bold;
     font-size: 15px;
     border-radius: 5px;
+    margin-right: 30px;
+}
+
+.NavigationDrawer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-color: #111;
+}
+
+/* Drawer Navigation */
+
+.NavigationContainer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 77px;
+    background-color: #222;
+    z-index: 1;
+    border-bottom: 2px solid rgb(48, 48, 48);
+    position: fixed;
+    flex-direction: row;
+}
+
+.NavigationContainer22{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 1500px;
+}
+
+.NavigationDrawerBlock{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 34px;
+    cursor: pointer;
+}
+
+.NavigationDrawerBlock:first-child{
+    padding: 0px;
+}
+
+.NavigationDrawerBlock:hover p{
+    color:rgb(39, 139, 119);
+}
+
+.NavigationDrawerBlock p{
+    color: white;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.NavigationDrawerBlockIcon{
+    width: 22px;
 }
 
 @media(max-width: 1040px){
@@ -105,6 +188,10 @@
 @media(max-width: 660px){
     .NavigationSearchContainer{
         width: 450px;
+    }
+
+    .NavigationContainer1{
+        flex-direction: column;
     }
 }
 

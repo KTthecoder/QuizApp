@@ -1,0 +1,133 @@
+.HomeContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.HomeHorizontalContainer {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 120px;
+    flex-direction: column;
+}
+
+.HomeContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+}
+
+.HomeHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.HomeHeader h1{
+    color: rgb(39, 139, 119);
+    margin: 0px;
+}
+
+.HomeHeaderCreateDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.HomeHeaderCreateDiv p{
+    color: white;
+    margin: 0px 0px 0px 10px
+}
+
+.HomeHeaderCreateDiv p:hover{
+    color: rgb(39, 139, 119);
+}
+
+.HomeHeaderCreateBtn{
+    width: 22px;
+    background-color: rgb(39, 139, 119);
+    padding: 6px;
+    border-radius: 20px;
+}
+
+.HomeBlocksContainer{
+    display: flex;
+    width: 100%;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.HomeBlocksDiv{
+    width: 340px;
+    height: 440px;
+    margin: 0px 0px 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgb(44, 44, 44);
+}
+
+.HomeBlocksImg{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-image: url('../../assets//images/react-logo.png');
+    background-size: cover;
+    background-position: center;
+    height: 50%;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.HomeBlockslInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    color: white;
+    box-sizing: border-box;
+    padding: 0px 15px;
+    height: 50%;
+}
+
+.HomeBlockslInfo h1{
+    font-size: 23px;
+    margin: 20px 0px 20px 0px;
+}
+
+.HomeHorizontalInfoTopP{
+    margin: 0px 0px 20px 0px;
+}
+
+.HomeHorizontalInfoBtmP{
+    margin: 0px 0px 20px 0px;
+}
+
+.HomeHorizontalInfoBtmP span{
+    margin-left: 10px;
+}
+
+.HomeContainer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+    margin-top: 50px;
+}
+

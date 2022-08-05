@@ -1,0 +1,50 @@
+.NavigationDrawer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    border-right: 2px solid rgb(48, 48, 48);
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #222;
+    height: auto;
+    height: 100vh;
+}
+
+.NavigationDrawerBlock{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 3px 0px;
+    cursor: pointer;
+}
+
+.NavigationDrawerBlock:hover{
+    background-color: #333;
+}
+
+.NavigationDrawerBlock:first-child{
+    padding-top: 80px;
+}
+
+.NavigationDrawerBlock p{
+    color: white;
+    margin-left: 20px;
+}
+
+.NavigationDrawerBlockIcon{
+    width: 25px;
+    margin-left: 32.5px;
+}
+
+.NavigationDrawerBlock:last-child{
+    border-bottom: 2px solid rgb(48, 48, 48);
+}
+
+
+
+

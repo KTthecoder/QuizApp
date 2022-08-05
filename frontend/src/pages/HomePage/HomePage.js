@@ -3,6 +3,7 @@ import plusIcon from '../../assets/icons/plus.png'
 import '../HomePage/HomePage.css'
 import ReactLogo from '../../assets/images/react-logo.png'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
+import Footer from '../../components/Footer/Footer'
 
 const HomePage = () => {
     const slides = [
@@ -130,6 +131,7 @@ const HomePage = () => {
                         ))}         
                     </div>
                 </div>
+                <Footer/>
             </div>
         </div>
     )

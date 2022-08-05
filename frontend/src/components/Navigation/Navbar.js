@@ -6,11 +6,16 @@ import homeIcon from '../../assets/icons/home.png'
 import categoriesIcon from '../../assets/icons/categories.png'
 import starIcon from '../../assets/icons/star.png'
 import historyIcon from '../../assets/icons/history.png'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import DrawerNav from '../DrawerNav/DrawerNav'
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    setShow(false)
+  }, [location])
 
   const DrawerToggle = () => {
     if(show === false){
@@ -37,7 +42,7 @@ const Navbar = () => {
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Catalin Fertu - Flaticon</a> */}
         </div>
         <div className='NavigationProfileContainer'>
-            <p className='NavigationProfileBtn'>Sign In</p>
+            <p className='NavigationProfileBtn' onClick={() => navigate("/login")} style={{cursor: 'pointer'}}>Sign In</p>
         </div>
       </div>
       <div className='NavigationDrawer1' style={show ? {display: 'flex'} : {display: 'none'}}>

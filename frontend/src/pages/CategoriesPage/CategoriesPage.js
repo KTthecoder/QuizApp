@@ -2,6 +2,7 @@ import React from 'react'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import '../CategoriesPage/CategoriesPage.css'
 import categoryIcon from '../../assets/icons/categories.png'
+import Footer from '../../components/Footer/Footer'
 
 const CategoriesPage = () => {
 
@@ -37,6 +38,7 @@ const CategoriesPage = () => {
               </div>
           ))}
         </div>
+        <Footer/>
       </div>
     </div>
   )

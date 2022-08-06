@@ -8,9 +8,160 @@
 .LoginBodyContainer{
     flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 120px;
+    min-height: 100vh;
+}
+
+.PhotoDiv{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FromImg{
+    width: 60%;
+}
+
+.FormDiv{
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
+}
+
+.FormHeaderDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    color: white;
+}
+
+.FormHeaderDiv h1{
+    margin: 0px;
+    color: rgb(39, 139, 119);
+}
+
+.FormHeaderDiv p{
+    margin: 15px 0px 30px 0px;
+}
+
+.FormInputsDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.FormInp{
+    box-sizing: border-box;
+    font-size: 17px;
+    padding: 13px 15px;
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #111;
+    outline: none;
+    background-color: #111; 
+    color: white;
+}
+
+.FormInp:focus{
+    border: 2px solid rgb(39, 139, 119);
+}
+
+.FormBtnsDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin-top: 5px;
+}
+
+.FormBtn{
+    padding: 13px 30px;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    background-color: rgb(39, 139, 119);
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 40%;
+    cursor: pointer;
+}
+
+.FormBtn:hover{
+    opacity: 0.85;
+}
+
+.FormBtnsDiv p{
+    color: white;
+}
+
+.FormLink{
+    color:rgb(39, 139, 119);
+    text-decoration: none;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.FormLink:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1600px){
+    .PhotoDiv{
+        width: 35%;
+    }
+}
+
+@media(max-width: 1350px){
+    .FromImg{
+        width: 80%;
+    }
+}
+
+@media(max-width: 1150px){
+    .LoginBodyContainer{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .FormDiv{
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+    }
+
+    .PhotoDiv{
+        display: none;
+    }
+
+    
+}
+
+@media(max-width: 970px){
+    .PhotoDiv{
+        display: flex;
+        margin-right: 50px;
+    }
+
+    .FromImg{
+        width: 100%;
+    }
+}
+
+
+@media(max-width: 970px){
+    .PhotoDiv{
+        display: none;
+    }
 }

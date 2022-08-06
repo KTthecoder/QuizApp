@@ -103,6 +103,8 @@
 
 .FormBtnsDiv p{
     color: white;
+    margin: 0px;
+    padding: 8px 0px;
 }
 
 .FormLink{
@@ -110,10 +112,21 @@
     text-decoration: none;
     margin-left: 5px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .FormLink:hover{
+    text-decoration: underline;
+}
+
+.FormLinkk{
+    color:rgb(39, 139, 119);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.FormLinkk:hover{
     text-decoration: underline;
 }
 
@@ -144,8 +157,6 @@
     .PhotoDiv{
         display: none;
     }
-
-    
 }
 
 @media(max-width: 970px){
@@ -163,5 +174,47 @@
 @media(max-width: 970px){
     .PhotoDiv{
         display: none;
+    }
+}
+
+@media(max-width: 450px){
+    .FormDiv{
+        width: 350px;
+    }
+
+    .FormInp{
+        width: 100%;
+    }
+
+    .FormBtnsDiv{
+        width: 100%;
+    }
+}
+
+@media(max-width: 390px){
+    .FormDiv{
+        width: 320px;
+    }
+
+    .FormInp{
+        width: 100%;
+    }
+
+    .FormBtnsDiv{
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .FormBtn{
+        margin: 10px 0px;
+        width: 180px;
+    }
+}
+
+@media(max-width: 350px){
+    .FormDiv{
+        width: 90%;
     }
 }

@@ -1,16 +1,243 @@
 .NormalGameContainer{
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
   
 .NormalGameBodyContainer{
-    flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 77px;
+    margin-top: 160px;
     flex-direction: column;
+    flex-grow: 1;
+}
+
+.NormalGameBodyContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.NormalGameQuestionHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    margin-bottom: 60px;
+}
+
+.NormalGameQuestionHeader h1{
+    color: white;
+    margin: 0px;
+}
+
+.NormalGameQuestionImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    background-image: url("../../assets/images/photo2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+}
+
+.NormalGameQuestionsBtnsDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 80px;
+}
+
+.NormalGameQuestionBtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 47%;
+    margin-top: 30px;
+    color: white;
+    background-color: #333;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px 30px;
+}
+
+.NormalGameQuestionBtn:hover{
+    background-color: #444;
+}
+
+.NormalGameBodyFinishDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.NormalGameBodyFinishBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    color: white;
+    background-color: rgb(39, 139, 119);
+    border-radius: 15px;
+    padding: 10px 0px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.NormalGameBodyFinishBtn:hover{
+    opacity: 0.85;
+}
+
+@media(max-width: 1360px){
+    .NormalGameQuestionHeader{
+        width: 900px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 900px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 900px;
+    }
+}
+
+@media(max-width: 1250px){
+    .NormalGameQuestionHeader{
+        width: 800px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 800px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 800px;
+    }
+}
+
+@media(max-width: 1250px){
+    .NormalGameQuestionHeader{
+        width: 700px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 700px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 700px;
+    }
+}
+
+@media(max-width: 1250px){
+    .NormalGameQuestionHeader{
+        width: 650px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 650px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 650px;
+    }
+}
+
+@media(max-width: 950px){
+    .NormalGameQuestionHeader{
+        width: 750px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 750px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 750px;
+    }
+}
+
+@media(max-width: 820px){
+    .NormalGameQuestionHeader{
+        width: 650px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 650px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 650px;
+    }
+}
+
+@media(max-width: 730px){
+    .NormalGameQuestionHeader{
+        width: 550px;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 550px;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 550px;
+    }
+}
+
+@media(max-width: 640px){
+    .NormalGameQuestionHeader{
+        width: 85%;
+    }   
+
+    .NormalGameQuestionImg{
+        width: 85%;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        width: 85%;
+    }
+
+    .NormalGameQuestionsBtnsDiv{
+        flex-direction: column;
+    }
+
+    .NormalGameQuestionBtn{
+        width: 100%;
+    }
+}
+
+@media(max-width: 490px){
+    .NormalGameQuestionImg{
+        height: 250px;
+    }
+}
+
+@media(max-width: 360px){
+    .NormalGameQuestionImg{
+        height: 200px;
+    }
+}
+
+@media(max-width: 360px){
+    .NormalGameQuestionImg{
+        height: 180px;
+    }
 }

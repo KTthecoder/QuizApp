@@ -1,0 +1,51 @@
+.QuizStartContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.QuizStartBodyContainer{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 120px;
+    flex-direction: column;
+}
+
+.QuizStartBodyHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.QuizStartBodyHeader h1{
+    color: white;
+}
+
+.QuizStartBodyBtnsDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.QuizStartBodyBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    background-color: green;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 300px;
+}
+
+.QuizStartBodyBtn p{
+    color: white;
+    font-size: 17px;
+}

@@ -1,0 +1,220 @@
+.QuizDetailsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.QuizDetailsBodyContainer{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 77px;
+    flex-direction: column;
+}
+
+.QuizDetailsBanner{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 85%;
+    height: 400px;
+    background-image: url("../../assets/images/photo2.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-direction: column;
+    margin-top: 50px;
+    border-radius: 30px;
+}
+
+.QuizDetailsBanner::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.435);
+    opacity: 1;
+    border-radius: 30px;
+}
+
+.QuizDetailsBannerH1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0px 40px 0px 40px;
+}
+
+.QuizDetailsBannerH1 h1{
+    color: white;
+    font-size: 38px;
+    margin: 0px 0px 10px 0px;
+}
+
+.QuizDetailsBannerInfoDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 40px 20px 40px;
+    position: relative;
+}
+
+.QuizDetailsBannerInfo{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 40px 15px 0px;
+    font-weight: bold;
+}
+
+.QuizDetailsBannerInfo p{
+    margin: 0px;
+}
+
+.QuizDetailsBannerInfo p:first-child{
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.QuizDetailsBannerBtnsDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0px 40px 40px 40px;
+}
+
+.QuizDetailsBannerBtn{
+    background-color: rgb(39, 139, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    border-radius: 15px;
+    padding: 0px 50px;
+    font-size: 16px;
+    color: white;
+}
+
+#StartQuiz:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#AddToFavorite:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.QuizDetailsBannerBtn p span{
+    margin-left: 8px;
+}
+
+.QuizDetailsBannerHeaders{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 85%;
+    background-color: #222;
+    border-radius: 15px;
+    padding: 10px 0px;
+    margin-top: 40px;
+}
+
+.QuizDetailsBannerHeaders p{
+    color: white;
+    font-size: 17px;
+    padding-left: 50px;
+    cursor: pointer;
+}
+
+.QuizDetailsBannerHeaders p:hover{
+    color: rgb(39, 139, 119);
+}
+
+.QuizDetailsQuestionsList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 85%;
+    flex-direction: column;
+}
+
+.QuizDetailsQuestion{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 900px;
+    background-color: #222;
+    border-radius: 15px;
+    margin-top: 30px;
+    flex-direction: column;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+}
+
+.QuizDetailsQuestionHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 85%;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    margin: 20px 0px 30px 0px;
+}
+
+.QuizDetailsQuestionHeader h1{
+    color: white;
+    margin: 0px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 25px;
+}
+
+.QuizDetailsQuestionImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    background-image: url("../../assets/images/photo2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 420px;
+    margin: 0px 40px;
+    border-radius: 15px;
+}
+
+.QuizDetailsQuestionQuestionsList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.QuizDetailsQuestionQuestionDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 85%;
+    background-color: #333;
+    margin: 35px 40px 0px 40px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 5px 30px;
+}
+
+.QuizDetailsQuestionQuestionDiv p{
+    color: white;
+    font-size: 17px;
+}

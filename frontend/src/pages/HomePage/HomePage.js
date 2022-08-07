@@ -4,6 +4,7 @@ import '../HomePage/HomePage.css'
 import ReactLogo from '../../assets/images/react-logo.png'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import Footer from '../../components/Footer/Footer'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
     const slides = [
@@ -27,6 +28,8 @@ const HomePage = () => {
         {id: '6', img: ReactLogo, title: 'Sixth Slide', lvl: 'Easy'},
     ]
 
+    const navigate = useNavigate()
+
     return (
         <div className='HomeContainer'>
             <DrawerNav/>
@@ -42,7 +45,7 @@ const HomePage = () => {
                     </div>
                     <div className='HomeBlocksContainer1'>
                         {slides1 && slides1.map((item) => (
-                            <div className='HomeBlocksDiv' key={item.id}>
+                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate("/quiz/quiz-one")}>
                                 <div className='HomeBlocksImg' alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.title}</h1>
@@ -68,7 +71,7 @@ const HomePage = () => {
                     </div>
                     <div className='HomeBlocksContainer2'>
                         {slides && slides.map((item) => (
-                            <div className='HomeBlocksDiv' key={item.id}>
+                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate("/quiz/quiz-one")}>
                                 <div className='HomeBlocksImg' alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.title}</h1>
@@ -92,7 +95,7 @@ const HomePage = () => {
                     </div>
                     <div className='HomeBlocksContainer2'>
                         {slides && slides.map((item) => (
-                            <div className='HomeBlocksDiv' key={item.id}>
+                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate("/quiz/quiz-one")}>
                                 <div className='HomeBlocksImg' alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.title}</h1>
@@ -116,7 +119,7 @@ const HomePage = () => {
                     </div>
                     <div className='HomeBlocksContainer1'>
                         {slides1 && slides1.map((item) => (
-                            <div className='HomeBlocksDiv' key={item.id}>
+                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate("/quiz/quiz-one")}>
                                 <div className='HomeBlocksImg' alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.title}</h1>

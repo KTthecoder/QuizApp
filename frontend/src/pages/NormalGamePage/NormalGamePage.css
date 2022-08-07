@@ -1,0 +1,16 @@
+.NormalGameContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.NormalGameBodyContainer{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 77px;
+    flex-direction: column;
+}

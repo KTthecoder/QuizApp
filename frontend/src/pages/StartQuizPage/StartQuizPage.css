@@ -39,13 +39,48 @@
     justify-content: center;
     align-items: center;
     padding: 10px 0px;
-    background-color: green;
+    background-color: rgb(39, 139, 119);
     border-radius: 15px;
-    margin-top: 30px;
+    margin-top: 40px;
     width: 300px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
 }
 
 .QuizStartBodyBtn p{
     color: white;
     font-size: 17px;
+}
+
+.QuizStartBodyBtn:hover{
+    transform: scale(1.05);
+    color: white;
+}
+
+@media(max-width: 530px){
+    .QuizStartBodyContainer{
+        width: 90%;
+    }
+
+    .QuizStartBodyBtn{
+        width: 300px;
+    }
+
+    .QuizStartBodyHeader h1{
+        text-align: center;
+        padding: 0px 30px;
+    }
+}
+
+@media(max-width: 360px){
+    .QuizStartBodyBtn{
+        width: 250px;
+    }
+}
+
+@media(max-width: 290px){
+    .QuizStartBodyBtn{
+        width: 80%;
+        text-align: center;
+    }
 }

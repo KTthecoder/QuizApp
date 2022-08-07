@@ -12,7 +12,7 @@ const StartQuizPage = () => {
             </div>
             <div className='QuizStartBodyBtnsDiv'>
                 <div className='QuizStartBodyBtn'>
-                    <p>All Questions</p>
+                    <p>Normal</p>
                 </div>
                 <div className='QuizStartBodyBtn'>
                     <p>Random Questions</p>

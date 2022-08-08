@@ -20,7 +20,7 @@ const QuizDetails = () => {
             <div className="QuizDetailsBodyContainer">
                 <div className='QuizDetailsBanner'>
                     <div className='QuizDetailsBannerH1'>
-                        <h1>{details.name}</h1>
+                        <h1>{details.name} fjodsij oijdsoif sodjf osdjif osjf oisdj</h1>
                     </div>
                     <div className='QuizDetailsBannerInfoDiv'>
                         <div className='QuizDetailsBannerInfo'>

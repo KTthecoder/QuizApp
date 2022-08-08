@@ -1,11 +1,11 @@
-.NormalGameContainer{
+.RandomGameContainer{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
   
-.NormalGameBodyContainer{
+.RandomGameBodyContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +15,7 @@
     flex-grow: 1;
 }
 
-.NormalGameBodyContainer1{
+.RandomGameBodyContainer1{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@
     margin-bottom: 60px;
 }
 
-.NormalGameQuestionHeader{
+.RandomGameQuestionHeader{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -32,12 +32,12 @@
     margin-bottom: 60px;
 }
 
-.NormalGameQuestionHeader h1{
+.RandomGameQuestionHeader h1{
     color: white;
     margin: 0px;
 }
 
-.NormalGameQuestionImg{
+.RandomGameQuestionImg{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,18 +49,17 @@
     border-radius: 15px;
 }
 
-.NormalGameQuestionsBtnsDiv{
+.RandomGameQuestionsBtnsDiv{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1000px;
     flex-wrap: wrap;
     margin-top: 30px;
-    border-bottom: 2px solid #444;
     padding-bottom: 80px;
 }
 
-.NormalGameQuestionBtn{
+.RandomGameQuestionBtn{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -75,7 +74,7 @@
     padding: 10px 30px;
 }
 
-.NormalGameBodyFinishDiv{
+.RandomGameBodyFinishDiv{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +82,7 @@
     margin-bottom: 100px;
 }
 
-.NormalGameBodyFinishBtn{
+.RandomGameBodyFinishBtn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,149 +97,149 @@
 }
 
 @media(max-width: 1360px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 900px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 900px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 900px;
     }
 }
 
 @media(max-width: 1250px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 800px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 800px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 800px;
     }
 }
 
 @media(max-width: 1250px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 700px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 700px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 700px;
     }
 }
 
 @media(max-width: 1250px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 650px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 650px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 650px;
     }
 }
 
 @media(min-width: 1200px){
-    .NormalGameQuestionBtn:hover{
-        background-color: #444;
-    }
-    
-    .NormalGameBodyFinishBtn:hover{
+    .RandomGameBodyFinishBtn:hover{
         opacity: 0.85;
+    }
+
+    .RandomGameQuestionBtn:hover{
+        background-color: #444;
     }
 }
 
 @media(max-width: 950px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 750px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 750px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 750px;
     }
 }
 
 @media(max-width: 820px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 650px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 650px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 650px;
     }
 }
 
 @media(max-width: 730px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 550px;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 550px;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 550px;
     }
 }
 
 @media(max-width: 640px){
-    .NormalGameQuestionHeader{
+    .RandomGameQuestionHeader{
         width: 90%;
     }   
 
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         width: 90%;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         width: 90%;
     }
 
-    .NormalGameQuestionsBtnsDiv{
+    .RandomGameQuestionsBtnsDiv{
         flex-direction: column;
     }
 
-    .NormalGameQuestionBtn{
+    .RandomGameQuestionBtn{
         width: 100%;
     }
 }
 
 @media(max-width: 490px){
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         height: 250px;
     }
 }
 
 @media(max-width: 360px){
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         height: 200px;
     }
 }
 
 @media(max-width: 360px){
-    .NormalGameQuestionImg{
+    .RandomGameQuestionImg{
         height: 180px;
     }
 }

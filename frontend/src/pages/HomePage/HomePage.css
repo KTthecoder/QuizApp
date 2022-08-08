@@ -51,10 +51,6 @@
     margin: 0px 0px 0px 10px
 }
 
-.HomeHeaderCreateDiv p:hover{
-    color: rgb(39, 139, 119);
-}
-
 .HomeHeaderCreateBtn{
     width: 22px;
     background-color: rgb(39, 139, 119);
@@ -98,10 +94,6 @@
     background-color: rgb(44, 44, 44);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-}
-
-.HomeBlocksDiv:hover{
-    transform: scale(1.05);
 }
 
 .HomeBlocksImg{
@@ -226,6 +218,16 @@
     .HomeBlocksContainer2{
         justify-content: space-around;
     }
+}
+
+@media(min-width: 1200px){
+    .HomeHeaderCreateDiv p:hover{
+        color: rgb(39, 139, 119);
+    }    
+
+    .HomeBlocksDiv:hover{
+        transform: scale(1.05);
+    }    
 }
 
 @media(max-width: 1080px){

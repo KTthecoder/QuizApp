@@ -97,10 +97,6 @@
     cursor: pointer;
 }
 
-.FormBtn:hover{
-    opacity: 0.85;
-}
-
 .FormBtnsDiv p{
     color: white;
     margin: 0px;
@@ -115,19 +111,11 @@
     cursor: pointer; 
 }
 
-.FormLink:hover{
-    text-decoration: underline;
-}
-
 .FormLinkk{
     color:rgb(39, 139, 119);
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-}
-
-.FormLinkk:hover{
-    text-decoration: underline;
 }
 
 @media(max-width: 1600px){
@@ -140,6 +128,21 @@
     .FromImg{
         width: 80%;
     }
+}
+
+@media(min-width: 1200px){
+    .FormBtn:hover{
+        opacity: 0.85;
+    }
+
+    .FormLinkk:hover{
+        text-decoration: underline;
+    }
+
+    .FormLink:hover{
+        text-decoration: underline;
+    }
+    
 }
 
 @media(max-width: 1150px){

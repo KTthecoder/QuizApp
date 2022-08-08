@@ -46,7 +46,7 @@ const QuizDetails = () => {
                         </div>
                         <div className='QuizDetailsBannerBtn'>
                             <p>Difficulty: {details.difficulty}</p>
-                            <span>Medium</span>
+                            <span>{details.difficulty}</span>
                         </div>
                     </div>
                 </div>

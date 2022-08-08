@@ -53,10 +53,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-.CategoriesBlock:hover{
-    transform: scale(1.07);
-}
-
 .CategoriesIcon{
     width: 80px;
 }
@@ -64,6 +60,12 @@
 .CategoriesBlock p{
     color: white;
     font-size: 17px;
+}
+
+@media(min-width: 1200px){
+    .CategoriesBlock:hover{
+        transform: scale(1.07);
+    }
 }
 
 @media(max-width: 907px){

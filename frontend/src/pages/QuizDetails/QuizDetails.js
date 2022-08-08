@@ -3,6 +3,8 @@ import '../QuizDetails/QuizDetails.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import photo1 from '../../assets/images/photo1.jpg'
 import { useNavigate } from 'react-router-dom'
+import playIcon from '../../assets/icons/play.png'
+import starIcon from '../../assets/icons/star.png'
 
 const QuizDetails = () => {
 
@@ -34,13 +36,17 @@ const QuizDetails = () => {
                     </div>
                     <div className='QuizDetailsBannerBtnsDiv'>
                         <div className='QuizDetailsBannerBtn' id='StartQuiz' onClick={() => navigate("/quiz/quiz-one/start")}>
+                            <img src={playIcon} className="QuizDetailsBannerBtnIcon" />
+                            {/* <a href="https://www.flaticon.com/free-icons/start" title="start icons">Start icons created by Freepik - Flaticon</a> */}
                             <p>Start Quiz</p>
                         </div>
                         <div className='QuizDetailsBannerBtn' id='AddToFavorite'>
+                            <img src={starIcon} className="QuizDetailsBannerBtnIcon" />
                             <p>Add To Favorite</p>
                         </div>
                         <div className='QuizDetailsBannerBtn'>
                             <p>Difficulty: {details.difficulty}</p>
+                            <span>Medium</span>
                         </div>
                     </div>
                 </div>

@@ -46,6 +46,7 @@
     background-size: cover;
     background-position: center;
     height: 320px;
+    border-radius: 15px;
 }
 
 .NormalGameQuestionsBtnsDiv{

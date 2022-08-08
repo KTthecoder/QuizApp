@@ -95,6 +95,10 @@
     padding: 0px 40px 40px 40px;
 }
 
+.QuizDetailsBannerBtnIcon{
+    display: none;
+}
+
 .QuizDetailsBannerBtn{
     background-color: rgb(39, 139, 119);
     display: flex;
@@ -308,6 +312,24 @@
     .QuizDetailsBannerBtnsDiv{
         padding-left: 40px;
     }
+
+    .QuizDetailsBannerBtnIcon{
+        display: flex;
+        width: 32px;
+    }
+
+    .QuizDetailsBannerBtn p{
+        display: none;
+    }
+
+    .QuizDetailsBannerBtn{
+        padding: 10px 15px;
+    }
+
+    .QuizDetailsBannerBtn span{
+        padding: 4px 10px;
+        font-weight: bold;
+    }
 }
 
 @media(max-width: 670px){
@@ -338,7 +360,7 @@
     }
 
     .QuizDetailsBanner{
-        height: 560px;
+        height: 480px;
     }
 
     .QuizDetailsQuestion{
@@ -390,10 +412,44 @@
     .QuizDetailsQuestionImg{
         height: 230px;
     }
+
+    .QuizDetailsBanner{
+        height: 420px;
+    }
+
+    .QuizDetailsBannerBtn{
+        margin-right: 20px;
+    }
 }
 
-@media(max-width: 306px){
+@media(max-width: 380px){
+    .QuizDetailsBanner{
+        height: 450px;
+    }
+
     .QuizDetailsBannerBtn{
-        padding: 0px 30px;
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 350px){
+    .QuizDetailsBanner{
+        height: 450px;
+    }
+
+    .QuizDetailsBannerBtn{
+        margin-right: 20px;
+    }
+
+    #StartQuiz{
+        margin: 0px;
+    }
+
+    #AddToFavorite{
+        margin: 0px 15px;
+    }
+
+    .QuizDetailsBannerBtn{
+        margin-top: 15px;
     }
 }

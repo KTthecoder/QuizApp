@@ -6,8 +6,8 @@ import homeIcon from '../../assets/icons/home.png'
 import categoriesIcon from '../../assets/icons/categories.png'
 import starIcon from '../../assets/icons/star.png'
 import historyIcon from '../../assets/icons/history.png'
+import userIcon from '../../assets/icons/user.png'
 import { useLocation, useNavigate } from 'react-router-dom'
-import DrawerNav from '../DrawerNav/DrawerNav'
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
@@ -70,6 +70,11 @@ const Navbar = () => {
                 <img src={starIcon} className="NavigationDrawerBlockIcon1"/>
                 {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
                 <p>Favorite</p>
+            </div>
+            <div className='NavigationDrawerBlock1' onClick={() => navigate("/login")}>
+                <img src={userIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
+                <p>Sign in</p>
             </div>
         </div>
     </nav>

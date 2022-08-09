@@ -21,12 +21,12 @@ const DrawerNav = () => {
                 {/* <a href="https://www.flaticon.com/free-icons/application" title="application icons">Application icons created by Dooder - Flaticon</a> */}
                 <p>Categories</p>
             </div>
-            <div className='NavigationDrawerBlock'>
+            <div className='NavigationDrawerBlock' style={{cursor: 'pointer'}} onClick={() => navigate("/history")}>
                 <img src={historyIcon} className="NavigationDrawerBlockIcon"/>
                 {/* <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by joalfa - Flaticon</a> */}
                 <p>History</p>
             </div>
-            <div className='NavigationDrawerBlock' id='NavigationDrawerBlockBreak'>
+            <div className='NavigationDrawerBlock' id='NavigationDrawerBlockBreak' style={{cursor: 'pointer'}} onClick={() => navigate("/favorite")}>
                 <img src={starIcon} className="NavigationDrawerBlockIcon"/>
                 {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
                 <p>Favorite</p>

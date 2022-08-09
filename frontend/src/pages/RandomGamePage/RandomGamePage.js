@@ -15,6 +15,9 @@ const RandomGamePage = () => {
         <div className='RandomGameContainer'>
             <DrawerNav/>
             <div className="RandomGameBodyContainer">
+                <div className='RandomGameBodyNextBtnDiv'> 
+                    <p>Random Question</p>
+                </div>
                 {question && 
                     <div key={question.id} className="RandomGameBodyContainer1">
                         <div className='RandomGameQuestionHeader'>

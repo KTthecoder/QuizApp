@@ -1,6 +1,7 @@
 import React from 'react'
 import '../FavoritePage/FavoritePage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
+import QuizMain from '../../components/QuizMain/QuizMain'
 
 const FavoritePage = () => {
     const slides = [
@@ -25,18 +26,7 @@ const FavoritePage = () => {
                 <div className='FavoritePageQuizesList'>
                 {slides && slides.map((item) => (
                     <div className='FavoritePageQuizDiv' key={item.id}>
-                        <div className='FavoritePageQuizImg'></div>
-                        <div className='FavoritePageQuizInfo'>
-                            <h1>{item.title}</h1>
-                            <p>Lorem dolor sit elit. Nunc ut dolor tincidunt. Lorem ipsum dolor sit amet</p>
-                        </div>
-                        <div className='FavoritePageQuizInfoBottom'>
-                            <p className='FavoritePageQuizInfoBottomP'>2240 questions 
-                                <span style={item.lvl === 'Easy' ? {color: 'green'} : item.lvl === 'Medium' ? {color: 'yellow'} : item.lvl === 'Hard' ?  {color: 'red'} : {color: 'white'}}>
-                                    &#x2022; {item.lvl}
-                                </span>
-                            </p>
-                        </div>
+                        <QuizMain title={item.title} lvl={item.lvl} />
                     </div>
                 ))}
                 </div>

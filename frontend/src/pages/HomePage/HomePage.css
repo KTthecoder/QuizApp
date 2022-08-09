@@ -26,7 +26,7 @@
 .HomeHeader{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-bottom: 70px;
     padding-left: 12px;
@@ -47,6 +47,18 @@
 }
 
 .HomeHeaderCreateDiv p{
+    color: white;
+    margin: 0px 0px 0px 10px
+}
+
+.HomeHeaderCreateDiv1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.HomeHeaderCreateDiv1 p{
     color: white;
     margin: 0px 0px 0px 10px
 }
@@ -91,7 +103,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
-    background-color: rgb(44, 44, 44);
+    background-color: #222;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -223,7 +235,12 @@
 @media(min-width: 1200px){
     .HomeHeaderCreateDiv p:hover{
         color: rgb(39, 139, 119);
+    }   
+    
+    .HomeHeaderCreateDiv1 p:hover{
+        color: rgb(39, 139, 119);
     }    
+
 
     .HomeBlocksDiv:hover{
         transform: scale(1.05);
@@ -286,7 +303,7 @@
 
 @media(max-width: 600px){
     .HomeBlocksDiv{
-        width: 360px;
+        width: 400px;
     }
 
     .HomeBlocksContainer1{
@@ -300,20 +317,29 @@
 
 @media(max-width: 430px){
     .HomeBlocksDiv{
-        width: 90%;
+        width: 100%;
     }
 }
 
 @media(max-width: 400px){
     .HomeHeader{
         flex-direction: column;
-    }
-
-    .HomeHeader{
-        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .HomeHeaderCreateDiv{
         margin-top: 25px;
+    }
+
+    .HomeHeaderCreateDiv1{
+        margin-top: 25px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .HomeHeaderCreateDiv1 p{
+        padding: 0px;
+        margin: 0px 0px 0px 3px;
     }
 }

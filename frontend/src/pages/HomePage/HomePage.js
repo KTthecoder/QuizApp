@@ -65,7 +65,7 @@ const HomePage = () => {
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
                         <h1>Popular Quizes</h1>
-                        <div className='HomeHeaderCreateDiv'>
+                        <div className='HomeHeaderCreateDiv1'>
                             <p>See more</p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ const HomePage = () => {
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
                         <h1>English Quizes</h1>
-                        <div className='HomeHeaderCreateDiv'>
+                        <div className='HomeHeaderCreateDiv1'>
                             <p>See more</p>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ const HomePage = () => {
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
                         <h1>IT Quizes</h1>
-                        <div className='HomeHeaderCreateDiv'>
+                        <div className='HomeHeaderCreateDiv1'>
                             <p>See more</p>
                         </div>
                     </div>

@@ -78,6 +78,7 @@ def QuizDetails(request, quizSlug):
         return Response(data)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def FavoriteQuizes(request, username):
     if request.method == 'GET':
         data = {}
@@ -91,6 +92,58 @@ def FavoriteQuizes(request, username):
             else:
                 data['response'] = 'User does not have any quizes'
                 return Response(data)
+        except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+
+@api_view(['GET'])
+def CategoryQuizes(request, categorySlug):
+    if request.method == 'GET':
+        data = {}
+        try:
+            category = QuizCategoryModel.objects.get(slug = categorySlug)
+            quizes = QuizModel.objects.filter(cateogry = category)
+            if quizes.exists():
+                serializer = QuizSerializerOnly(quizes, many = True)
+                return Response(serializer.data)
+            else:
+                data['response'] = 'There is not any quizes in this category'
+                return Response(data)
+        except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+
+@api_view(['GET'])
+def CategoryBySlug(request, categorySlug):
+    if request.method == 'GET':
+        data = {}
+        try:
+            categories = QuizCategoryModel.objects.get(slug = categorySlug)
+            serializer = CategorySerializer(categories)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            data['response'] = 'There is not any categories in database'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def AddToFavorite(request):
+    if request.method == 'POST':
+        data = {}
+        try:
+            serializer = FavoriteQuizesSerializer(data = request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
         except:
             data['response'] = 'This slug is invalid'
             return Response(data)

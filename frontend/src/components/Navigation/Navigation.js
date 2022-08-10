@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CategoriesPage from '../../pages/CategoriesPage/CategoriesPage'
+import CategoryQuizesPage from '../../pages/CategoryQuizesPage/CategoryQuizesPage'
 import FavoritePage from '../../pages/FavoritePage/FavoritePage'
 import HistoryPage from '../../pages/HistoryPage/HistoryPage'
 import HomePage from '../../pages/HomePage/HomePage'
@@ -38,6 +39,9 @@ const Navigation = () => {
         </Route>
         <Route exact path='/history' element={<PrivateRoute/>}>
           <Route exact path='/history' element={<HistoryPage/>}  />
+        </Route>
+        <Route exact path='/categories/:slug' element={<CategoryQuizesPage/>}>
+          <Route exact path='/categories/:slug' element={<CategoryQuizesPage/>}  />
         </Route>
 
         <Route exact path='/login' element={<LoginPage/>} />

@@ -26,6 +26,15 @@ class QuizSerializer(serializers.ModelSerializer):
         model = QuizModel
         fields = ['id', 'name', 'description', 'difficultyLvl', 'views', 'QuizImg', 'slug', 'questionCount', 'questionmodel']
 
+class QuizSerializerOnly(serializers.ModelSerializer):
+    categoryName = serializers.SerializerMethodField('get_category_Name')
+    class Meta:
+        model = QuizModel
+        fields = ['id', 'name', 'description', 'difficultyLvl', 'views', 'QuizImg', 'slug', 'questionCount', 'categoryName']
+
+    def get_category_Name(self, quiz):
+        return quiz.cateogry.name
+
 class FavoriteQuizesSerializer(serializers.ModelSerializer):
     quizName = serializers.SerializerMethodField('get_quiz_name')
     quizDifficultyLvl = serializers.SerializerMethodField('get_quiz_difficultyLvl')

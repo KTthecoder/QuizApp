@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import '../QuizDetails/QuizDetails.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import { useNavigate, useParams } from 'react-router-dom'
 import playIcon from '../../assets/icons/play.png'
 import starIcon from '../../assets/icons/star.png'
 import useFetch from '../../hooks/useFetch'
+import { AuthContext } from '../../contexts/AuthContext'
+import GetCookie from '../../components/GetCookie';
 
 const QuizDetails = () => {
     let { slug } = useParams()
@@ -14,6 +16,28 @@ const QuizDetails = () => {
     const [page, setPage] = useState("Questions")
 
     const navigate = useNavigate()
+
+    const { authTokens, user } = useContext(AuthContext)
+
+    const AddToFavorite = () => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/quiz/add-to-favorite/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization': 'Bearer ' + String(authTokens.access)
+            },
+            body: JSON.stringify({
+                'user': user,
+                'quiz': quizDetails
+            })
+        })
+        .then(res => res.json())
+        .then((data) => {
+            alert("Added To Favorite: ", data)
+        })
+    }
 
     return (
         <div className='QuizDetailsContainer'>
@@ -39,10 +63,12 @@ const QuizDetails = () => {
                             {/* <a href="https://www.flaticon.com/free-icons/start" title="start icons">Start icons created by Freepik - Flaticon</a> */}
                             <p>Start Quiz</p>
                         </div>
-                        <div className='QuizDetailsBannerBtn' id='AddToFavorite'>
+                        
+                        <div className='QuizDetailsBannerBtn' id='AddToFavorite' onClick={() => AddToFavorite()}>
                             <img src={starIcon} className="QuizDetailsBannerBtnIcon" />
                             <p>Add To Favorite</p>
                         </div>
+
                         <div className='QuizDetailsBannerBtn'>
                             <p>Difficulty: {quizDetails && quizDetails.difficultyLvl}</p>
                             <span>{quizDetails && quizDetails.difficultyLvl}</span>

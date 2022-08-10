@@ -1,0 +1,69 @@
+.HistoryPageContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.HistoryPageBodyContainer{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.HistoryPageBodyHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    margin-top: 100px;
+}
+
+.HistoryPageBodyHeader h1{
+    color: rgb(39, 139, 119);
+}
+
+.HistoryPageBodyList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    flex-direction: column;
+}
+
+.HistoryPageQuiz{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.HistoryPageQuizImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 180px;
+    background-image: url("../../assets/images/photo2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.HistoryPageQuizInfo{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 180px;
+}
+
+.HistoryPageQuizInfo h1{
+    margin: 0px;
+}
+
+.HomeHorizontalInfoBtmP{
+    margin: 0px;
+}

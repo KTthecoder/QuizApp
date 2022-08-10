@@ -18,10 +18,6 @@ const useFetch = (url) => {
         .then((data) => {
             setData(data)
         })
-        .catch(err => {
-            console.log('Error: ', err)
-            setError(data)
-        })
     }, [url])
 
     return [data, error]

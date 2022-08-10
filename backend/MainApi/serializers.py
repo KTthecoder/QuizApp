@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import *
 
-class QuizSerializer(serializers.ModelSerializer):
+class QuizSerializerMaxEight(serializers.ModelSerializer):
     categoryName = serializers.SerializerMethodField('get_category_Name')
     class Meta:
         model = QuizModel

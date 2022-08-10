@@ -9,10 +9,10 @@ from .serializers import *
 @api_view(['GET'])
 def AllQuizes(request):
     if request.method == 'GET':
-        quizes = QuizModel.objects.all()
+        quizes = QuizModel.objects.all()[:8]
         data = {}
         if quizes.exists():
-            serializer = QuizSerializer(quizes, many = True)
+            serializer = QuizSerializerMaxEight(quizes, many = True)
             return Response(serializer.data)
         else:
             data['response'] = 'There is not any quizes in database'
@@ -28,9 +28,9 @@ def QuizesByCategory(request, categorySlug):
         data = {}
         try:
             categoryId = QuizCategoryModel.objects.get(slug = categorySlug)
-            quizes = QuizModel.objects.filter(cateogry = categoryId.id)
+            quizes = QuizModel.objects.filter(cateogry = categoryId.id)[:8]
             if quizes.exists():
-                serializer = QuizSerializer(quizes, many = True)
+                serializer = QuizSerializerMaxEight(quizes, many = True)
                 return Response(serializer.data)
             else:
                 data['response'] = 'There is not any quizes in database'

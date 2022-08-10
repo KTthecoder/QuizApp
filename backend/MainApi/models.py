@@ -12,6 +12,7 @@ class QuizCategoryModel(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
     icon = models.ImageField(upload_to="CategoryIcon/")
+    color = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

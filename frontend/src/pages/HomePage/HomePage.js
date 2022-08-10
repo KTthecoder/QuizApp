@@ -5,6 +5,7 @@ import ReactLogo from '../../assets/images/react-logo.png'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom'
+import GetCookie from '../../components/GetCookie'
 
 const HomePage = () => {
     const slides = [
@@ -28,7 +29,31 @@ const HomePage = () => {
         {id: '6', img: ReactLogo, title: 'Sixth Slide', lvl: 'Easy'},
     ]
 
+    useEffect(() => {
+        AllQuizes()
+    }, [])
+
+    const [quizes, setQuizes] = useState([])
+
     const navigate = useNavigate()
+
+    const AllQuizes = async () => {
+        const csrftoken = GetCookie('csrftoken');
+        let response = await fetch('http://127.0.0.1:8000/quiz/all', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            }
+        })
+        let data = await response.json()
+        if(response.status == 200){
+            setQuizes(data)
+        }
+        else{
+            console.log("Error while getting quizes from database")
+        }
+    }
 
     return (
         <div className='HomeContainer'>
@@ -64,21 +89,21 @@ const HomePage = () => {
                 </div> 
                 <div className='HomeContainer2'>
                     <div className='HomeHeader'>
-                        <h1>Popular Quizes</h1>
+                        <h1>Newest Quizes</h1>
                         <div className='HomeHeaderCreateDiv1'>
                             <p>See more</p>
                         </div>
                     </div>
                     <div className='HomeBlocksContainer2'>
-                        {slides && slides.map((item) => (
-                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate("/quiz/quiz-one")}>
+                        {quizes && quizes.map((item) => (
+                            <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
                                 <div className='HomeBlocksImg' alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
-                                    <h1>{item.title}</h1>
-                                    <p className='HomeHorizontalInfoTopP'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dolor tincidunt.</p>
-                                    <p className='HomeHorizontalInfoBtmP'>&#x2022; 20 questions 
-                                        <span style={item.lvl === 'Easy' ? {color: 'green'} : item.lvl === 'Medium' ? {color: 'yellow'} : item.lvl === 'Hard' ?  {color: 'red'} : {color: 'white'}}>
-                                            &#x2022; {item.lvl}
+                                    <h1>{item.name}</h1>
+                                    <p className='HomeHorizontalInfoTopP'>{item.description}</p>
+                                    <p className='HomeHorizontalInfoBtmP'>{item.questionCount} questions
+                                        <span style={item.difficultyLvl === 'Easy' ? {color: 'green'} : item.difficultyLvl === 'Medium' ? {color: 'yellow'} : item.difficultyLvl === 'Hard' ?  {color: 'red'} : {color: 'white'}}>
+                                            &#x2022; {item.difficultyLvl}
                                         </span>
                                     </p>
                                 </div>

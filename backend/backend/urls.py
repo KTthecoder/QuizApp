@@ -21,6 +21,7 @@ from MainApi.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('quiz/all', AllQuizes, name='AllQuizes')
+    path('quiz/all', AllQuizes, name='AllQuizes'),
+    path('quiz/<slug:categorySlug>', QuizesByCategory, name='QuizesByCategory'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

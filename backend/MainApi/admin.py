@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(QuizModel)
 admin.site.register(QuestionModel)
 admin.site.register(FavoriteQuizModel)
+admin.site.register(QuizCategoryModel)

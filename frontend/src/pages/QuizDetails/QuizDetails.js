@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../QuizDetails/QuizDetails.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
-import photo1 from '../../assets/images/photo1.jpg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import playIcon from '../../assets/icons/play.png'
 import starIcon from '../../assets/icons/star.png'
+import useFetch from '../../hooks/useFetch'
 
 const QuizDetails = () => {
+    let { slug } = useParams()
 
-    const details = {
-        id: '1', name: 'Quiz One', slug: 'quiz-one', difficulty: 'Easy', questions: '334',
-    }
+    const [quizDetails] = useFetch(`http://127.0.0.1:8000/quiz/details/${slug}`)
 
     const [page, setPage] = useState("Questions")
 
@@ -22,15 +21,15 @@ const QuizDetails = () => {
             <div className="QuizDetailsBodyContainer">
                 <div className='QuizDetailsBanner'>
                     <div className='QuizDetailsBannerH1'>
-                        <h1>{details.name} fjodsij oijdsoif sodjf osdjif osjf oisdj</h1>
+                        <h1>{quizDetails && quizDetails.name}</h1>
                     </div>
                     <div className='QuizDetailsBannerInfoDiv'>
                         <div className='QuizDetailsBannerInfo'>
-                            <p>2</p>
+                            <p>{quizDetails && quizDetails.questionCount}</p>
                             <p>questions</p>                            
                         </div>
                         <div className='QuizDetailsBannerInfo'>
-                            <p>32</p>
+                            <p>{quizDetails && quizDetails.views}</p>
                             <p>views</p>                            
                         </div>
                     </div>
@@ -45,8 +44,8 @@ const QuizDetails = () => {
                             <p>Add To Favorite</p>
                         </div>
                         <div className='QuizDetailsBannerBtn'>
-                            <p>Difficulty: {details.difficulty}</p>
-                            <span>{details.difficulty}</span>
+                            <p>Difficulty: {quizDetails && quizDetails.difficultyLvl}</p>
+                            <span>{quizDetails && quizDetails.difficultyLvl}</span>
                         </div>
                     </div>
                 </div>
@@ -58,46 +57,34 @@ const QuizDetails = () => {
                 {page && page === "Questions" 
                 ? 
                     <div className='QuizDetailsQuestionsList'>
-                        <div className='QuizDetailsQuestion'>
-                            <div className='QuizDetailsQuestionHeader'>
-                                <h1>How many eggs do you have in the fridge?</h1>
+                        {quizDetails && quizDetails.questionmodel.lenght == 0 ? (
+                            <div>
+                                <h1 style={{color: 'white', padding: '30px 12px 0px 12px'}}>There is not any questions in this quiz</h1>
                             </div>
-                            <div className='QuizDetailsQuestionImg'></div>
-                            <div className='QuizDetailsQuestionQuestionsList'>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>A. Eleven</p>
+                        ) 
+                        : quizDetails && quizDetails.questionmodel.map((item) => (
+                                <div className='QuizDetailsQuestion' key={item.id}>
+                                    <div className='QuizDetailsQuestionHeader'>
+                                        <h1>{item.title}</h1>
+                                    </div>
+                                    <div className='QuizDetailsQuestionImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.questionImg})`}}></div>
+                                    <div className='QuizDetailsQuestionQuestionsList'>
+                                        <div className='QuizDetailsQuestionQuestionDiv'>
+                                            <p>A. {item.ansA}</p>
+                                        </div>
+                                        <div className='QuizDetailsQuestionQuestionDiv'>
+                                            <p>B. {item.ansB}</p>
+                                        </div>
+                                        <div className='QuizDetailsQuestionQuestionDiv'>
+                                            <p>C. {item.ansC}</p>
+                                        </div>
+                                        <div className='QuizDetailsQuestionQuestionDiv'>
+                                            <p>D. {item.ansD}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>B. Two</p>
-                                </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>C. Seventy Seven</p>
-                                </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>D. Eight</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='QuizDetailsQuestion'>
-                            <div className='QuizDetailsQuestionHeader'>
-                                <h1>How many eggs?</h1>
-                            </div>
-                            <div className='QuizDetailsQuestionImg'></div>
-                            <div className='QuizDetailsQuestionQuestionsList'>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>A. Eleven</p>
-                                </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>B. Two</p>
-                                </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>C. Seventy Seven</p>
-                                </div>
-                                <div className='QuizDetailsQuestionQuestionDiv'>
-                                    <p>D. Eight</p>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        }
                     </div>
                 : ""}
                 {page && page === "Answers" 

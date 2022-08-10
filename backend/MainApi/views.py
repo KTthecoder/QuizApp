@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from .models import *
 from .serializers import *
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 @api_view(['GET'])
@@ -55,6 +56,21 @@ def AllCategories(request):
                 data['response'] = 'There is not any categories in database'
                 return Response(data)
         except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+
+@api_view(['GET'])
+def QuizDetails(request, quizSlug):
+    if request.method == 'GET':
+        data = {}
+        try:
+            quiz = QuizModel.objects.get(slug = quizSlug)
+            serializer = QuizSerializer(quiz)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
             data['response'] = 'This slug is invalid'
             return Response(data)
     else:

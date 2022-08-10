@@ -15,3 +15,15 @@ class CategorySerializer(serializers.ModelSerializer):
         model = QuizCategoryModel
         fields = '__all__'
 
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = QuestionModel
+        fields = ['id', 'title', 'ansA', 'ansB', 'ansC', 'ansD', 'correctAns', 'questionImg', 'quiz']
+
+class QuizSerializer(serializers.ModelSerializer):
+    questionmodel = QuestionSerializer(read_only = True, many = True)
+    class Meta:
+        model = QuizModel
+        fields = ['id', 'name', 'description', 'difficultyLvl', 'views', 'QuizImg', 'slug', 'questionCount', 'questionmodel']
+
+

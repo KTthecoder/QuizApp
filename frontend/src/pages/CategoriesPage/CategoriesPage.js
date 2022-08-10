@@ -19,10 +19,10 @@ const CategoriesPage = () => {
         </div>
         <div className='CategoriesCategoriesDiv'>
           {categories && categories.map((item) => (
-              <div className='CategoriesBlock' style={{backgroundColor: item.color}} onClick={() => navigate(`/categories/${item.slug}`)}>
-                <img src={`http://127.0.0.1:8000${item.icon}`} className="CategoriesIcon" />
-                <p>{item.name}</p>
-              </div>
+            <div className='CategoriesBlock' style={{backgroundColor: item.color}} onClick={() => navigate(`/categories/${item.slug}`)} key={item.id}>
+              <img src={`http://127.0.0.1:8000${item.icon}`} className="CategoriesIcon" />
+              <p>{item.name}</p>
+            </div>
           ))}
         </div>
         <Footer/>

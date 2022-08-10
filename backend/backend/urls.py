@@ -24,6 +24,7 @@ urlpatterns = [
 
     path('quiz/all', AllQuizes, name='AllQuizes'),
     path('quiz/<slug:categorySlug>', QuizesByCategory, name='QuizesByCategory'),
+    path('quiz/details/<slug:quizSlug>', QuizDetails, name='QuizDetails'),
 
     path('categories/all', AllCategories, name='AllCategories'),
 ]

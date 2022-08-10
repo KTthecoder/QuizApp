@@ -32,7 +32,9 @@ const HomePage = () => {
                     <div className='HomeBlocksContainer1'>
                         {myQuizes && myQuizes['response'] == "There is not any quizes in database" ? 
                         (
-                            <div>There is not any quizes in database</div>
+                            <div>
+                                <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>There is not any quizes in database</h1>
+                            </div>
                         )
                         : myQuizes && myQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
@@ -60,7 +62,9 @@ const HomePage = () => {
                     <div className='HomeBlocksContainer2'>
                         {allQuizes && allQuizes['response'] == "There is not any quizes in database" ? 
                         (
-                            <div>There is not any quizes in database</div>
+                            <div>
+                                <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>There is not any quizes in database</h1>
+                            </div>
                         )
                         : allQuizes && allQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>

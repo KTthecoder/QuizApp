@@ -10,3 +10,8 @@ class QuizSerializer(serializers.ModelSerializer):
     def get_category_Name(self, quiz):
         return quiz.cateogry.name
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = QuizCategoryModel
+        fields = '__all__'
+

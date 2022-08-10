@@ -21,7 +21,10 @@ from MainApi.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('quiz/all', AllQuizes, name='AllQuizes'),
     path('quiz/<slug:categorySlug>', QuizesByCategory, name='QuizesByCategory'),
+
+    path('categories/all', AllCategories, name='AllCategories'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

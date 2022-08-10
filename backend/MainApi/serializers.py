@@ -26,4 +26,38 @@ class QuizSerializer(serializers.ModelSerializer):
         model = QuizModel
         fields = ['id', 'name', 'description', 'difficultyLvl', 'views', 'QuizImg', 'slug', 'questionCount', 'questionmodel']
 
+class FavoriteQuizesSerializer(serializers.ModelSerializer):
+    quizName = serializers.SerializerMethodField('get_quiz_name')
+    quizDifficultyLvl = serializers.SerializerMethodField('get_quiz_difficultyLvl')
+    quizViews = serializers.SerializerMethodField('get_quiz_views')
+    quizQuizImg = serializers.SerializerMethodField('get_quiz_image')
+    quizSlug = serializers.SerializerMethodField('get_quiz_slug')
+    quizCategoryName = serializers.SerializerMethodField('get_quiz_category_name')
+    username = serializers.SerializerMethodField('get_user_username')
+    class Meta:
+        model = FavoriteQuizModel
+        fields = ['id', 'user', 'username', 'quiz', 'quizName', 'quizDifficultyLvl', 'quizViews', 'quizQuizImg', 'quizSlug', 'quizCategoryName']
+    
+    def get_quiz_name(self, favorite):
+        return favorite.quiz.name
+
+    def get_quiz_difficultyLvl(self, favorite):
+        return favorite.quiz.difficultyLvl
+
+    def get_quiz_views(self, favorite):
+        return favorite.quiz.views
+
+    def get_quiz_image(self, favorite):
+        return favorite.quiz.QuizImg.url
+
+    def get_quiz_slug(self, favorite):
+        return favorite.quiz.slug
+
+    def get_quiz_category_name(self, favorite):
+        return favorite.quiz.cateogry.name
+
+    def get_user_username(self, favorite):
+        return favorite.user.username
+
+
 

@@ -76,3 +76,24 @@ def QuizDetails(request, quizSlug):
     else:
         data['response'] = 'Invalid method (Try GET)'
         return Response(data)
+
+@api_view(['GET'])
+def FavoriteQuizes(request):
+    if request.method == 'GET':
+        data = {}
+        try:
+            user = request.user
+            quizes = FavoriteQuizModel.objects.filter(user = user)
+            print(quizes)
+            if quizes.exists():
+                serializer = FavoriteQuizesSerializer(quizes, many = True)
+                return Response(serializer.data)
+            else:
+                data['response'] = 'User does not have any quizes'
+                return Response(data)
+        except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)

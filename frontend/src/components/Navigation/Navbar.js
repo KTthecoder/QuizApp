@@ -78,11 +78,18 @@ const Navbar = () => {
                 {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
                 <p>Favorite</p>
             </div>
-            <div className='NavigationDrawerBlock1' onClick={() => navigate("/login")}>
+            {user 
+            ? <div className='NavigationDrawerBlock1' onClick={() => navigate("/profile")}>
+                <img src={userIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
+                <p>Profil</p>
+              </div>
+            : <div className='NavigationDrawerBlock1' onClick={() => navigate("/login")}>
                 <img src={userIcon} className="NavigationDrawerBlockIcon1"/>
                 {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
                 <p>Sign in</p>
-            </div>
+              </div>
+            }     
         </div>
     </nav>
   )

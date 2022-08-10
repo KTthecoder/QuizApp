@@ -26,7 +26,7 @@ const LoginPage = () => {
                 type="text"
                 name="username"
                 className="FormInp"
-                placeholder='username'
+                placeholder='Username'
               />
               <input
                 type="password"

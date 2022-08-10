@@ -34,5 +34,7 @@ urlpatterns = [
     path('quiz/details/<slug:quizSlug>', QuizDetails, name='QuizDetails'),
 
     path('categories/all', AllCategories, name='AllCategories'),
+
+    path('quiz/favorite/', FavoriteQuizes, name='FavoriteQuizes'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

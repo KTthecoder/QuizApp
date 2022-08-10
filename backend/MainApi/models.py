@@ -29,7 +29,7 @@ class QuizModel(models.Model):
 
     @property
     def questionCount(self):
-        total = QuestionModel.objects.all().count()
+        total = QuestionModel.objects.filter(quiz = self.id).count()
         return total
 
     def __str__(self):
@@ -50,8 +50,8 @@ class QuestionModel(models.Model):
         return self.title
 
 class FavoriteQuizModel(models.Model):
-    quiz = models.ForeignKey(QuizModel, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    quiz = models.ForeignKey(QuizModel, related_name="quizmodel", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="usermodel", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username + " - " + self.quiz.name

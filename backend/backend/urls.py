@@ -18,9 +18,16 @@ from django.urls import path, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from MainApi.views import *
+from . import views
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('api/token/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('quiz/all', AllQuizes, name='AllQuizes'),
     path('quiz/<slug:categorySlug>', QuizesByCategory, name='QuizesByCategory'),

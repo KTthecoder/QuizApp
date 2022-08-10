@@ -3,8 +3,12 @@ import '../LoginPage/LoginPage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import svg from '../../assets/svgs/login.svg'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const LoginPage = () => {
+  const { loginUser } = useContext(AuthContext)
+
   return (
     <div className='LoginContainer'>
         <DrawerNav/>
@@ -17,12 +21,12 @@ const LoginPage = () => {
                 <h1>Welcome Back!</h1>
                 <p>Login to continue</p>
             </div>
-            <form className='FormInputsDiv' onSubmit={() =>{}}>
+            <form className='FormInputsDiv' onSubmit={loginUser}>
               <input
                 type="text"
-                name="email"
+                name="username"
                 className="FormInp"
-                placeholder='Email'
+                placeholder='username'
               />
               <input
                 type="password"

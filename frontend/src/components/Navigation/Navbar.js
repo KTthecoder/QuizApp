@@ -8,8 +8,11 @@ import starIcon from '../../assets/icons/star.png'
 import historyIcon from '../../assets/icons/history.png'
 import userIcon from '../../assets/icons/user.png'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const location = useLocation()
 
@@ -42,7 +45,11 @@ const Navbar = () => {
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Catalin Fertu - Flaticon</a> */}
         </div>
         <div className='NavigationProfileContainer'>
-            <p className='NavigationProfileBtn' onClick={() => navigate("/login")} style={{cursor: 'pointer'}}>Sign In</p>
+          {user 
+            ? <p className='NavigationProfileBtn' onClick={() => navigate("/profile")} style={{cursor: 'pointer'}}>Profile</p>
+            : <p className='NavigationProfileBtn' onClick={() => navigate("/login")} style={{cursor: 'pointer'}}>Sign In</p>
+          }
+           
         </div>
       </div>
       <div className='NavigationDrawer1' style={show ? {display: 'flex'} : {display: 'none'}}>

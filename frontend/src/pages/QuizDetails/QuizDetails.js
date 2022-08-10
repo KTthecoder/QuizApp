@@ -90,28 +90,25 @@ const QuizDetails = () => {
                 {page && page === "Answers" 
                 ? 
                     <div className='QuizDetailsQuestionsList'>
-                        <div className='QuizDetailsQuestion'>
-                            <div className='QuizDetailsQuestionHeader'>
-                                <h1>How many eggs do you have in the fridge?</h1>
+                        {quizDetails && quizDetails.questionmodel.length === 0 ? (
+                            <div>
+                                <h1 style={{color: 'white', padding: '30px 12px 0px 12px'}}>There is not any questions in this quiz</h1>
                             </div>
-                            <div className='QuizDetailsQuestionImg'></div>
-                            <div className='QuizDetailsQuestionQuestionsList'>
-                                <div className='QuizDetailsQuestionQuestionDiv' style={{backgroundColor: 'green'}}>
-                                    <p>A. Eleven</p>
+                        ) 
+                        : quizDetails && quizDetails.questionmodel.map((item) => (
+                                <div className='QuizDetailsQuestion' key={item.id}>
+                                    <div className='QuizDetailsQuestionHeader'>
+                                        <h1>{item.title}</h1>
+                                    </div>
+                                    <div className='QuizDetailsQuestionImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.questionImg})`}}></div>
+                                    <div className='QuizDetailsQuestionQuestionsList'>
+                                        <div className='QuizDetailsQuestionQuestionDiv' style={{backgroundColor: 'green'}}>
+                                            <p>{item.correctAns}</p>
+                                        </div>  
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className='QuizDetailsQuestion'>
-                            <div className='QuizDetailsQuestionHeader'>
-                                <h1>How many eggs?</h1>
-                            </div>
-                            <div className='QuizDetailsQuestionImg'></div>
-                            <div className='QuizDetailsQuestionQuestionsList'>
-                                <div className='QuizDetailsQuestionQuestionDiv' style={{backgroundColor: 'green'}}>
-                                    <p>C. Seventy Seven</p>
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        }
                     </div>
                 : ""}
                 

@@ -33,10 +33,12 @@ class FavoriteQuizesSerializer(serializers.ModelSerializer):
     quizQuizImg = serializers.SerializerMethodField('get_quiz_image')
     quizSlug = serializers.SerializerMethodField('get_quiz_slug')
     quizCategoryName = serializers.SerializerMethodField('get_quiz_category_name')
+    quizDescription = serializers.SerializerMethodField('get_quiz_category_description')
     username = serializers.SerializerMethodField('get_user_username')
+    quizQuestionCount = serializers.SerializerMethodField('get_question_count')
     class Meta:
         model = FavoriteQuizModel
-        fields = ['id', 'user', 'username', 'quiz', 'quizName', 'quizDifficultyLvl', 'quizViews', 'quizQuizImg', 'quizSlug', 'quizCategoryName']
+        fields = ['id', 'user', 'username', 'quiz', 'quizName', 'quizQuestionCount', 'quizDescription', 'quizDifficultyLvl', 'quizViews', 'quizQuizImg', 'quizSlug', 'quizCategoryName']
     
     def get_quiz_name(self, favorite):
         return favorite.quiz.name
@@ -58,6 +60,12 @@ class FavoriteQuizesSerializer(serializers.ModelSerializer):
 
     def get_user_username(self, favorite):
         return favorite.user.username
+
+    def get_quiz_category_description(self, favorite):
+        return favorite.quiz.description
+
+    def get_question_count(self, favorite):
+        return favorite.quiz.questionCount
 
 
 

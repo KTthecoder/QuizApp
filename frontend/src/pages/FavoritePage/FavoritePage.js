@@ -2,19 +2,15 @@ import React from 'react'
 import '../FavoritePage/FavoritePage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import QuizMain from '../../components/QuizMain/QuizMain'
+import useFetch from '../../hooks/useFetch'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 const FavoritePage = () => {
-    const slides = [
-        {id: '1', title: 'First Slide', lvl: 'Hard'},
-        {id: '2', title: 'Second Slide', lvl: 'Medium'},
-        {id: '3', title: 'Third Slide', lvl: 'Easy'},
-        {id: '4', title: 'Fourth Slide', lvl: 'Hard'},
-        {id: '5', title: 'Fivth Slide', lvl: 'Hard'},
-        {id: '6', title: 'Sixth Slide', lvl: 'Easy'},
-        {id: '7', title: 'Seventh Slide', lvl: 'Medium'},
-        {id: '8', title: 'Eight Slide', lvl: 'Easy'},
-        {id: '9', title: 'Nineth Slide', lvl: 'Easy'},
-    ]
+    const { user } = useContext(AuthContext)
+    const [favorites] = useFetch(`http://127.0.0.1:8000/quiz/favorite/1`)
+    const navigate = useNavigate()
 
     return (
         <div className='FavoritePageContainer'>
@@ -24,9 +20,9 @@ const FavoritePage = () => {
                     <h1>Favorite Quizes</h1>
                 </div>
                 <div className='FavoritePageQuizesList'>
-                {slides && slides.map((item) => (
-                    <div className='FavoritePageQuizDiv' key={item.id}>
-                        <QuizMain title={item.title} lvl={item.lvl} />
+                {favorites && favorites.map((item) => (
+                    <div className='FavoritePageQuizDiv' key={item.id} onClick={() => navigate(`/quiz/${item.quizSlug}`)}>
+                        <QuizMain title={item.quizName} questionCount={item.quizQuestionCount} description={item.quizDescription} lvl={item.quizDifficultyLvl} img={item.quizQuizImg} />
                     </div>
                 ))}
                 </div>

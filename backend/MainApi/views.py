@@ -78,11 +78,11 @@ def QuizDetails(request, quizSlug):
         return Response(data)
 
 @api_view(['GET'])
-def FavoriteQuizes(request):
+def FavoriteQuizes(request, user):
     if request.method == 'GET':
         data = {}
         try:
-            user = request.user
+            # user = request.user
             quizes = FavoriteQuizModel.objects.filter(user = user)
             print(quizes)
             if quizes.exists():

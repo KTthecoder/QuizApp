@@ -35,6 +35,6 @@ urlpatterns = [
 
     path('categories/all', AllCategories, name='AllCategories'),
 
-    path('quiz/favorite/<str:user>', FavoriteQuizes, name='FavoriteQuizes'),
+    path('quiz/favorite/<str:username>', FavoriteQuizes, name='FavoriteQuizes'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

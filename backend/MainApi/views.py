@@ -78,13 +78,13 @@ def QuizDetails(request, quizSlug):
         return Response(data)
 
 @api_view(['GET'])
-def FavoriteQuizes(request, user):
+def FavoriteQuizes(request, username):
     if request.method == 'GET':
         data = {}
         try:
-            # user = request.user
+            user = User.objects.get(username = username)
             quizes = FavoriteQuizModel.objects.filter(user = user)
-            print(quizes)
+            
             if quizes.exists():
                 serializer = FavoriteQuizesSerializer(quizes, many = True)
                 return Response(serializer.data)

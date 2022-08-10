@@ -57,7 +57,7 @@ const QuizDetails = () => {
                 {page && page === "Questions" 
                 ? 
                     <div className='QuizDetailsQuestionsList'>
-                        {quizDetails && quizDetails.questionmodel.lenght == 0 ? (
+                        {quizDetails && quizDetails.questionmodel.length === 0 ? (
                             <div>
                                 <h1 style={{color: 'white', padding: '30px 12px 0px 12px'}}>There is not any questions in this quiz</h1>
                             </div>

@@ -5,11 +5,11 @@ import '../Navigation/Navbar.css'
 import homeIcon from '../../assets/icons/home.png'
 import categoriesIcon from '../../assets/icons/categories.png'
 import starIcon from '../../assets/icons/star.png'
-import historyIcon from '../../assets/icons/history.png'
 import userIcon from '../../assets/icons/user.png'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import quizIcon from '../../assets/icons/quiz.png'
 
 const Navbar = () => {
   const { user } = useContext(AuthContext)
@@ -68,10 +68,10 @@ const Navbar = () => {
                 {/* <a href="https://www.flaticon.com/free-icons/application" title="application icons">Application icons created by Dooder - Flaticon</a> */}
                 <p>Categories</p>
             </div>
-            <div className='NavigationDrawerBlock1' onClick={() => navigate("/history")}>
-                <img src={historyIcon} className="NavigationDrawerBlockIcon1"/>
-                {/* <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by joalfa - Flaticon</a> */}
-                <p>History</p>
+            <div className='NavigationDrawerBlock1' onClick={() => navigate("/my-quizes")} id='NavigationDrawerBlockBreak1'>
+                <img src={quizIcon} className="NavigationDrawerBlockIcon1"/>
+                {/* <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Pixel perfect - Flaticon</a> */}
+                <p>My Quizes</p>
             </div>
             <div className='NavigationDrawerBlock1' onClick={() => navigate("/favorite")} id='NavigationDrawerBlockBreak1'>
                 <img src={starIcon} className="NavigationDrawerBlockIcon1"/>

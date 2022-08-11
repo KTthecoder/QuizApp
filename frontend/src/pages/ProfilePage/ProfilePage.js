@@ -45,7 +45,7 @@ const ProfilePage = () => {
           <h1>Welcome {user.username}!</h1>
         </div>
         <div className='ProfileBodyBtnsDiv'>
-          <div className='ProfileBodyDivBtn' onClick={() => navigate('/categories/my-quizes')}>
+          <div className='ProfileBodyDivBtn' onClick={() => navigate('/my-quizes')}>
             <p>My Quizes</p>
           </div>
           <div className='ProfileBodyDivBtn' onClick={() => logoutUser()}>
@@ -56,7 +56,7 @@ const ProfilePage = () => {
           <h2>Change Password</h2>
           <form className='ProfileBodyForm' onSubmit={ChangePassword}>
             <div className='ProfileBodyFormUpper'>
-              <input type="password" placeholder='Old password' className='ProfileBodyFormInp' name="old_password"/>
+              <input type="password" placeholder='Old Password' className='ProfileBodyFormInp' name="old_password"/>
               <input type="password" placeholder='New Password' className='ProfileBodyFormInp' name="new_password"/>
             </div>
             <div className='ProfileBodyFormBottom'>

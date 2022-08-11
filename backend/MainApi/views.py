@@ -169,3 +169,23 @@ def RandomQuestionInQuiz(request, quizSlug):
     else:
         data['response'] = 'Invalid method (Try GET)'
         return Response(data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def UserQuizes(request):
+    if request.method == 'GET':
+        data = {}
+        try:
+            quizes = QuizModel.objects.filter(user = request.user)
+            if quizes.exists():
+                serializer = QuizSerializerOnly(quizes, many = True)
+                return Response(serializer.data)
+            else:
+                data['response'] = 'There is not any quizes in this category'
+                return Response(data)
+        except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)

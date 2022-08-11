@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CategoriesPage from '../../pages/CategoriesPage/CategoriesPage'
 import CategoryQuizesPage from '../../pages/CategoryQuizesPage/CategoryQuizesPage'
 import FavoritePage from '../../pages/FavoritePage/FavoritePage'
-import HistoryPage from '../../pages/HistoryPage/HistoryPage'
 import HomePage from '../../pages/HomePage/HomePage'
 import LoginPage from '../../pages/LoginPage/LoginPage'
+import MyQuizesPage from '../../pages/MyQuizesPage/MyQuizesPage'
 import NormalGamePage from '../../pages/NormalGamePage/NormalGamePage'
 import ProfilePage from '../../pages/ProfilePage/ProfilePage'
 import QuizDetails from '../../pages/QuizDetails/QuizDetails'
@@ -37,11 +37,11 @@ const Navigation = () => {
         <Route exact path='/favorite' element={<PrivateRoute/>}>
           <Route exact path='/favorite' element={<FavoritePage/>}  />
         </Route>
-        <Route exact path='/history' element={<PrivateRoute/>}>
-          <Route exact path='/history' element={<HistoryPage/>}  />
-        </Route>
-        <Route exact path='/categories/:slug' element={<CategoryQuizesPage/>}>
+        <Route exact path='/categories/:slug' element={<PrivateRoute/>}>
           <Route exact path='/categories/:slug' element={<CategoryQuizesPage/>}  />
+        </Route>
+        <Route exact path='/my-quizes' element={<PrivateRoute/>}>
+          <Route exact path='/my-quizes' element={<MyQuizesPage/>}  />
         </Route>
 
         <Route exact path='/login' element={<LoginPage/>} />

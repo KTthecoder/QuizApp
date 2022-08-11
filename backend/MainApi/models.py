@@ -27,6 +27,8 @@ class QuizModel(models.Model):
 
     cateogry = models.ForeignKey(QuizCategoryModel, on_delete=models.CASCADE)
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     @property
     def questionCount(self):
         total = QuestionModel.objects.filter(quiz = self.id).count()

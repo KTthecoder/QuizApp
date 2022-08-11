@@ -1,18 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import plusIcon from '../../assets/icons/plus.png'
 import '../HomePage/HomePage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch'
+import GetCookie from '../../components/GetCookie'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const HomePage = () => {
     const navigate = useNavigate()
 
     const [allQuizes] = useFetch("http://127.0.0.1:8000/quiz/all")
-    const [myQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'my-quizes'}`)
+    // const [myQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'my-quizes'}`)
     const [englishQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'english-quizes'}`)
     const [itQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'it-quizes'}`)
+
+    const { authTokens } = useContext(AuthContext)
+    const [myQuizes, setMyQuizes] = useState([])
+
+    const MyQuizes = () => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/user/quizes/`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization': 'Bearer ' + String(authTokens.access)
+            }
+        })
+        .then(res => res.json())
+        .then((data) => {
+            setMyQuizes(data)
+        })
+    }
+
+    useEffect(() => {
+        MyQuizes()
+    }, [])
 
     return (
         <div className='HomeContainer'>

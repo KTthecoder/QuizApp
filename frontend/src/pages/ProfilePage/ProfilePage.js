@@ -4,11 +4,31 @@ import { useNavigate } from 'react-router-dom'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import { AuthContext } from '../../contexts/AuthContext'
 import '../ProfilePage/ProfilePage.css'
+import GetCookie from '../../components/GetCookie'
 
 const ProfilePage = () => {
-  const { logoutUser } = useContext(AuthContext)
+  const { logoutUser, authTokens } = useContext(AuthContext)
 
   const navigate = useNavigate()
+
+  const ChangePassword = (e) => {
+    const csrftoken = GetCookie('csrftoken');
+    fetch("http://127.0.0.1:8000/account/change-password/", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
+        'Authorization': 'Bearer ' + String(authTokens.access)
+      }, 
+      body: JSON.stringify({
+        old_password: e.target.old_password.value,
+        new_password: e.target.new_password.value,
+      })
+    })
+    .then(res => res.json())
+    .then(data => navigate("/"))
+    .catch(err => alert("Error While Changing Password"))
+  }
 
   return (
     <div className='ProfileContainer'>
@@ -27,10 +47,10 @@ const ProfilePage = () => {
         </div>
         <div className='ProfileBodyEditInfo'>
           <h2>Change Password</h2>
-          <form className='ProfileBodyForm' onSubmit={() => {}}>
+          <form className='ProfileBodyForm' onSubmit={ChangePassword}>
             <div className='ProfileBodyFormUpper'>
-              <input type="password" placeholder='Old password' className='ProfileBodyFormInp' />
-              <input type="password" placeholder='New Password' className='ProfileBodyFormInp' />
+              <input type="password" placeholder='Old password' className='ProfileBodyFormInp' name="old_password"/>
+              <input type="password" placeholder='New Password' className='ProfileBodyFormInp' name="new_password"/>
             </div>
             <div className='ProfileBodyFormBottom'>
               <input type="submit" value="Change Password" className='ProfileBodyFormBtn' />
@@ -39,10 +59,10 @@ const ProfilePage = () => {
           <h2>Change Username</h2>
             <form className='ProfileBodyForm' onSubmit={() => {}}>
               <div className='ProfileBodyFormUpper'>
-                <input type="text" placeholder='Username' className='ProfileBodyFormInp' />
+                <input type="text" placeholder='Username' className='ProfileBodyFormInp' name="username"/>
               </div>
               <div className='ProfileBodyFormBottom'>
-                <input type="submit" value="Change Username" className='ProfileBodyFormBtn' id='ProfileLastBtn' />
+                <input type="submit" value="Change Username" className='ProfileBodyFormBtn' id='ProfileLastBtn'/>
               </div>
           </form>
         </div>

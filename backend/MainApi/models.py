@@ -21,7 +21,7 @@ class QuizModel(models.Model):
     name = models.CharField(max_length=250)
     description = models.TextField(max_length=400)
     difficultyLvl = models.CharField(choices=lvl, max_length=6, default='Easy')
-    views = models.IntegerField(default=0)
+    views = models.FloatField(default=0)
     QuizImg = models.ImageField(upload_to="QuizImage/")
     slug = models.SlugField(unique=True)
 

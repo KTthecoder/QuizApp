@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -69,6 +68,8 @@ def QuizDetails(request, quizSlug):
         data = {}
         try:
             quiz = QuizModel.objects.get(slug = quizSlug)
+            quiz.views += 0.5
+            quiz.save()
             serializer = QuizSerializer(quiz)
             return Response(serializer.data)
         except ObjectDoesNotExist:

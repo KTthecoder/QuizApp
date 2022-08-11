@@ -7,7 +7,7 @@ import '../ProfilePage/ProfilePage.css'
 import GetCookie from '../../components/GetCookie'
 
 const ProfilePage = () => {
-  const { logoutUser, authTokens } = useContext(AuthContext)
+  const { logoutUser, authTokens, user } = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -26,7 +26,14 @@ const ProfilePage = () => {
       })
     })
     .then(res => res.json())
-    .then(data => navigate("/"))
+    .then(data => {
+      if(data['response'] === "Invalid old password"){
+        alert("Invalid Password")
+      }
+      if(data['response'] === "Password Changed"){
+        alert("Password Changed")
+      }
+    })
     .catch(err => alert("Error While Changing Password"))
   }
 
@@ -35,7 +42,7 @@ const ProfilePage = () => {
       <DrawerNav/>
       <div className='ProfileBodyContainer'>
         <div className='ProfileBodyHeader'>
-          <h1>Welcome Ksawery!</h1>
+          <h1>Welcome {user.username}!</h1>
         </div>
         <div className='ProfileBodyBtnsDiv'>
           <div className='ProfileBodyDivBtn' onClick={() => navigate('/categories/my-quizes')}>
@@ -53,17 +60,8 @@ const ProfilePage = () => {
               <input type="password" placeholder='New Password' className='ProfileBodyFormInp' name="new_password"/>
             </div>
             <div className='ProfileBodyFormBottom'>
-              <input type="submit" value="Change Password" className='ProfileBodyFormBtn' />
+              <input type="submit" value="Change Password" className='ProfileBodyFormBtn' id='ProfileLastBtn'/>
             </div>
-          </form>
-          <h2>Change Username</h2>
-            <form className='ProfileBodyForm' onSubmit={() => {}}>
-              <div className='ProfileBodyFormUpper'>
-                <input type="text" placeholder='Username' className='ProfileBodyFormInp' name="username"/>
-              </div>
-              <div className='ProfileBodyFormBottom'>
-                <input type="submit" value="Change Username" className='ProfileBodyFormBtn' id='ProfileLastBtn'/>
-              </div>
           </form>
         </div>
       </div>

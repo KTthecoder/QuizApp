@@ -17,7 +17,6 @@ def ChangePassword(request):
         if serializer.is_valid():
             old_password = serializer.data.get("old_password")
             user = request.user
-            user
             if not user.check_password(old_password):
                 data['response'] = "Invalid old password"
                 return Response(data)

@@ -41,5 +41,7 @@ urlpatterns = [
 
     path('quiz/favorite/<str:username>', FavoriteQuizes, name='FavoriteQuizes'),
     path('quiz/add-to-favorite/', AddToFavorite, name='AddToFavorite'),
+
+    path('quiz/<slug:quizSlug>/random-game', RandomQuestionInQuiz, name='RandomQuestionInQuiz'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

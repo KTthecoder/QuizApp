@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import *
 from .serializers import *
 from django.core.exceptions import ObjectDoesNotExist
+import random
 
 # Create your views here.
 @api_view(['GET'])
@@ -146,6 +147,24 @@ def AddToFavorite(request):
                 return Response(serializer.data)
         except:
             data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+
+@api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+def RandomQuestionInQuiz(request, quizSlug):
+    if request.method == 'GET':
+        data = {}
+        try:
+            quiz = QuizModel.objects.get(slug = quizSlug)
+            questions = QuestionModel.objects.filter(quiz = quiz)
+            randomQuestion = random.choice(questions)
+            serializer = QuestionSerializer(randomQuestion)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            data['response'] = 'There is not any categories in database'
             return Response(data)
     else:
         data['response'] = 'Invalid method (Try GET)'

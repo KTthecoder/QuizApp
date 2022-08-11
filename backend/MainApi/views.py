@@ -153,7 +153,7 @@ def AddToFavorite(request):
         return Response(data)
 
 @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def RandomQuestionInQuiz(request, quizSlug):
     if request.method == 'GET':
         data = {}

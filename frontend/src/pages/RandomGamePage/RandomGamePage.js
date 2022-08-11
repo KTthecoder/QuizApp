@@ -1,21 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import '../RandomGamePage/RandomGamePage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
+import GetCookie from '../../components/GetCookie'
 
 const RandomGamePage = () => {
+    const { authTokens } = useContext(AuthContext)
+    let { slug } = useParams()
+    const [question, setQuestion] = useState()
 
-    const question = {
-        id: '1', title: 'How many eggs do you have in the fridge?', 
-        ansA: 'Eleven', ansB: 'Two', ansC: 'Seventy Seven', ansD: 'Eight', 
-        correct: 'Eleven'
+    useEffect(() => {
+        RandomQuestion()
+    }, [])
+
+    const RandomQuestion = () => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/quiz/${slug}/random-game`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization': 'Bearer ' + String(authTokens.access)
+            },
+        })
+        .then(res => res.json())
+        .then((data) => {
+            setQuestion(data)
+        })
+        .catch(err => console.log(err))
     }
+    
 
     return (
         <div className='RandomGameContainer'>
             <DrawerNav/>
             <div className="RandomGameBodyContainer">
-                <div className='RandomGameBodyNextBtnDiv'> 
+                <div className='RandomGameBodyNextBtnDiv' onClick={() => RandomQuestion()}> 
                     <p>Random Question</p>
                 </div>
                 {question && 
@@ -23,7 +44,7 @@ const RandomGamePage = () => {
                         <div className='RandomGameQuestionHeader'>
                             <h1>{question.title}</h1>
                         </div>
-                        <div className='RandomGameQuestionImg'></div>
+                        <div className='RandomGameQuestionImg' style={{backgroundImage: `url(http://127.0.0.1:8000${question.questionImg})`}}></div>
                         <div className='RandomGameQuestionsBtnsDiv'>
                             <div className='RandomGameQuestionBtn'>
                                 <p>A. {question.ansA}</p>

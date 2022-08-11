@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import plusIcon from '../../assets/icons/plus.png'
 import '../HomePage/HomePage.css'
-import ReactLogo from '../../assets/images/react-logo.png'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom'
-import GetCookie from '../../components/GetCookie'
 import useFetch from '../../hooks/useFetch'
 
 const HomePage = () => {

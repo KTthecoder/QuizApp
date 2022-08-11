@@ -58,7 +58,7 @@ const QuizDetails = () => {
                         </div>
                     </div>
                     <div className='QuizDetailsBannerBtnsDiv'>
-                        <div className='QuizDetailsBannerBtn' id='StartQuiz' onClick={() => navigate("/quiz/quiz-one/start")}>
+                        <div className='QuizDetailsBannerBtn' id='StartQuiz' onClick={() => navigate(`/quiz/${slug}/start`)}>
                             <img src={playIcon} className="QuizDetailsBannerBtnIcon" />
                             {/* <a href="https://www.flaticon.com/free-icons/start" title="start icons">Start icons created by Freepik - Flaticon</a> */}
                             <p>Start Quiz</p>

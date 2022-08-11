@@ -190,3 +190,21 @@ def UserQuizes(request):
     else:
         data['response'] = 'Invalid method (Try GET)'
         return Response(data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def NormalQuiz(request, quizSlug):
+    if request.method == 'GET':
+        data = {}
+        try:
+            quiz = QuizModel.objects.get(slug = quizSlug)
+            questions = QuestionModel.objects.filter(quiz = quiz)
+            serializer = QuestionSerializer(questions, many = True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            data['response'] = 'There is not any categories in database'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+

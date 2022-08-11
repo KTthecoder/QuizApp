@@ -43,6 +43,7 @@ urlpatterns = [
     path('quiz/add-to-favorite/', AddToFavorite, name='AddToFavorite'),
 
     path('quiz/<slug:quizSlug>/random-game', RandomQuestionInQuiz, name='RandomQuestionInQuiz'),
+    path('quiz/<slug:quizSlug>/normal-game', NormalQuiz, name='NormalQuiz'),
 
     path('user/quizes/', UserQuizes, name='UserQuizes'),
 ]

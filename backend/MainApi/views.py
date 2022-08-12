@@ -208,3 +208,22 @@ def NormalQuiz(request, quizSlug):
         data['response'] = 'Invalid method (Try GET)'
         return Response(data)
 
+@api_view(['GET'])
+def SearchQuiz(request, quizName):
+    if request.method == 'GET':
+        data = {}
+        try:
+            quizes = QuizModel.objects.filter(name__icontains = quizName)
+            if quizes.exists():
+                serializer = QuizSerializerOnly(quizes, many = True)
+                return Response(serializer.data)
+            else:
+                data['response'] = 'There is no quizes with that name'
+                return Response(data)
+        except:
+            data['response'] = 'This slug is invalid'
+            return Response(data)
+    else:
+        data['response'] = 'Invalid method (Try GET)'
+        return Response(data)
+

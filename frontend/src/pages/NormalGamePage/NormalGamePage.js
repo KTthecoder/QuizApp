@@ -9,6 +9,7 @@ const NormalGamePage = () => {
     const [questions, setQuestions] = useState([])
     let { slug } = useParams()
     const { authTokens } = useContext(AuthContext)
+    const navigate = useNavigate()
     
     const AllQuestions = () => {
         const csrftoken = GetCookie('csrftoken');
@@ -40,7 +41,7 @@ const NormalGamePage = () => {
                 {questions && questions.length === 0
                 ?  (
                     <div>
-                        <h1 style={{color: 'white', padding: '0px 12px 0px 12px', marginBottom: '100px'}}>There is no questions</h1>
+                        <h1 style={{color: 'white', padding: '0px 12px 0px 12px', marginTop: '-20px', marginBottom: '50px'}}>There is no questions</h1>
                     </div>
                 ) 
                 : questions.map((item) => (
@@ -67,7 +68,11 @@ const NormalGamePage = () => {
                 ))}
                 {questions && questions.length === 0
                 ?  (
-                    <h1></h1>
+                    <div className='NormalGameBodyFinishDiv'>
+                        <div className='NormalGameBodyFinishBtn' onClick={() => navigate("/")}>
+                            <p>Find New Quiz</p>
+                        </div>
+                    </div>
                 ) 
                 : 
                     <div className='NormalGameBodyFinishDiv'>

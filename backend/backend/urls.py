@@ -46,5 +46,7 @@ urlpatterns = [
     path('quiz/<slug:quizSlug>/normal-game', NormalQuiz, name='NormalQuiz'),
 
     path('user/quizes/', UserQuizes, name='UserQuizes'),
+
+    path('search/<str:quizName>/', SearchQuiz, name='SearchQuiz'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

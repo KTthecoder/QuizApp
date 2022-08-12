@@ -15,6 +15,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const location = useLocation()
+  const [searchValue, setSearchValue] = useState("")
 
   useEffect(() => {
     setShow(false)
@@ -31,6 +32,11 @@ const Navbar = () => {
 
   const navigate = useNavigate()
 
+  const SearchPage = (value) => {
+    navigate(`/search/${value}`)
+    console.log(value)
+  }
+
   return (
     <nav className='NavigationContainer'>
       <div className='NavigationContainer1'>
@@ -40,7 +46,7 @@ const Navbar = () => {
             <h1 onClick={() => navigate("/")} style={{cursor: 'pointer'}}><span>Quiz</span>App</h1>
         </div>
         <div className='NavigationSearchContainer'>
-            <input type="text" className='NavigationSearchBar' placeholder='Search' />
+            <input type="text" className='NavigationSearchBar' onChange={(e) => SearchPage(e.target.value)} placeholder='Search'/>
             <img src={searchIcon} className="NavigationSearchBtn" />
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Catalin Fertu - Flaticon</a> */}
         </div>

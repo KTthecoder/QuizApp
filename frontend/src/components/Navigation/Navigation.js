@@ -11,6 +11,8 @@ import ProfilePage from '../../pages/ProfilePage/ProfilePage'
 import QuizDetails from '../../pages/QuizDetails/QuizDetails'
 import RandomGamePage from '../../pages/RandomGamePage/RandomGamePage'
 import RegisterPage from '../../pages/RegisterPage/RegisterPage'
+import SearchPage from '../../pages/SearchPage/SearchPage'
+import SearchPageNull from '../../pages/SearchPageNull/SearchPageNull'
 import StartQuizPage from '../../pages/StartQuizPage/StartQuizPage'
 import PrivateRoute from '../../utils/PrivateRoute'
 
@@ -21,6 +23,8 @@ const Navigation = () => {
         <Route exact path='/' element={<HomePage/>} />
         <Route exact path='/categories' element={<CategoriesPage/>} />
         <Route exact path='/quiz/:slug' element={<QuizDetails/>} />
+        <Route exact path='/search/:slug' element={<SearchPage/>} />
+        <Route exact path='/search/' element={<SearchPageNull/>} />
         
         <Route exact path='/quiz/:slug/normal' element={<PrivateRoute/>}>
           <Route exact path='/quiz/:slug/normal' element={<NormalGamePage/>} />

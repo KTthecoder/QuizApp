@@ -78,7 +78,7 @@ const QuizDetails = () => {
                 <div className='QuizDetailsBannerHeaders'>
                     <p style={page && page === "Questions" ? {color: 'rgb(39, 139, 119)', fontWeight: 'bold'} : {}} onClick={() => setPage("Questions")}>Questions</p>
                     <p style={page && page === "Answers" ? {color: 'rgb(39, 139, 119)', fontWeight: 'bold'} : {}} onClick={() => setPage("Answers")}>Answers</p>
-                    <p style={page && page === "Comments" ? {color: 'rgb(39, 139, 119)', fontWeight: 'bold'} : {}} onClick={() => setPage("Comments")}>Comments</p>
+                    <p style={page && page === "Comments" ? {color: 'rgb(39, 139, 119)', fontWeight: 'bold'} : {}} onClick={() => setPage("Comments")}></p>
                 </div>
                 {page && page === "Questions" 
                 ? 

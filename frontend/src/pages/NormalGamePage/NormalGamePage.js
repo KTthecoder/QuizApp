@@ -10,6 +10,7 @@ const NormalGamePage = () => {
     let { slug } = useParams()
     const { authTokens } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [answersTab, setAnswersTab] = useState([])
     
     const AllQuestions = () => {
         const csrftoken = GetCookie('csrftoken');

@@ -44,7 +44,7 @@ const SearchPage = () => {
                         </div>
                     )
                 :   searchValue && searchValue.map((item) => (
-                        <div className='FavoritePageQuizDiv' key={item.id} onClick={() => navigate(`/quiz/${item.quizSlug}`)}>
+                        <div className='FavoritePageQuizDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
                             <QuizMain title={item.name} questionCount={item.questionCount} description={item.description} lvl={item.difficultyLvl} img={item.QuizImg} />
                         </div>
                     ))}

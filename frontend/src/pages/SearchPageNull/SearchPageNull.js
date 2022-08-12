@@ -12,7 +12,7 @@ const SearchPageNull = () => {
                 </div>
                 <div className='FavoritePageQuizesList'>
                     <div>
-                        <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>Find quizes</h1>
+                        <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>Search quizes</h1>
                     </div>
                 </div>
             </div>

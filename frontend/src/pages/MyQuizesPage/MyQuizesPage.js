@@ -10,7 +10,7 @@ const MyQuizesPage = () => {
     const navigate = useNavigate()
     const [quizes, setQuizes] = useState([])
     const { slug } = useParams()
-    const { authTokens } = useContext(AuthContext)
+    const { accessToken } = useContext(AuthContext)
 
     const MyQuizes = () => {
         const csrftoken = GetCookie('csrftoken');
@@ -19,7 +19,7 @@ const MyQuizesPage = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             }
         })
         .then(res => res.json())

@@ -57,7 +57,7 @@ const CategoryQuizesPage = () => {
                 {quizes && quizes['response'] == "There is not any quizes in this category"
                 ?   (
                         <div>
-                            <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>There's not any quizes in this category</h1>
+                            <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>Empty Category</h1>
                         </div>
                     )
                 :   quizes && quizes.map((item) => (

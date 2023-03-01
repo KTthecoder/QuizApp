@@ -1,15 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
 
-export const AuthProvider = (props) => {
-
-    let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
-    let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null )
+const AuthProvider = (props) => {
+    let [refreshToken, setRefreshToken] = useState(() => localStorage.getItem('refreshToken') ? JSON.parse(localStorage.getItem('refreshToken')) : null)
+    let [accessToken, setAccessToken] = useState(() => localStorage.getItem('accessToken') ? JSON.parse(localStorage.getItem('accessToken')) : null)
+    let [user, setUser] = useState(() => localStorage.getItem('accessToken') ? jwt_decode(localStorage.getItem('accessToken')) : null )
     let navigate = useNavigate()
     let [loading, setLoading] = useState(true)
+    // let [isLoading, setIsLoading] = useState(true)
 
     const loginUser = async (e) => {
         e.preventDefault()
@@ -25,9 +26,11 @@ export const AuthProvider = (props) => {
         })
         let data = await response.json()
         if(response.status == 200){
-            setAuthTokens(data)
+            setRefreshToken(data.refresh)
+            setAccessToken(data.access)
             setUser(jwt_decode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
+            localStorage.setItem('refreshToken', JSON.stringify(data.refresh))
+            localStorage.setItem('accessToken', JSON.stringify(data.access))
             navigate("/")
         }
         else{
@@ -36,60 +39,133 @@ export const AuthProvider = (props) => {
     }
 
     let logoutUser = () => {
-        setAuthTokens(null)
         setUser(null)
-        localStorage.removeItem('authTokens')
+        setRefreshToken(null)
+        setAccessToken(null)
+        localStorage.removeItem('refreshToken')
+        localStorage.removeItem('accessToken')
         navigate('/login')
     }
 
     let updateToken = async () => {
+        // GetToken()
+
         let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                'refresh': authTokens?.refresh
+                'refresh' : refreshToken
             })
         })
         let data = await response.json()
 
         if(response.status == 200){
-            setAuthTokens(data)
+            setAccessToken(data.access)
             setUser(jwt_decode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
+            localStorage.setItem('accessToken', JSON.stringify(data.access))
+
+            // GetToken()
         }
-        // else{
-        //     logoutUser()
-        // }
+        else{
+            // logoutUser()
+        }
 
         if(loading){
             setLoading(false)
         }
     }
 
+    // async function GetToken() {
+    //     fetch('http://127.0.0.1:8000/api/token/verify/', {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             'token' : refreshToken
+    //         })
+    //     })
+    //     .then((data) => data.json())
+    //     .then((data) => {
+    //             if(data['detail']){
+    //                 logoutUser()
+    //             }
+    //             else{
+    //                 try{
+    //                     setRefreshToken(refreshToken)
+                        
+    //                 }
+    //                 catch{
+    //                     console.log('Problem')
+    //                     logoutUser()
+    //                 }
+    //             }
+    //         }
+    //     )
+    //     .catch((err) => {
+    //         logoutUser()
+    //         console.log(err)
+    //     })
+
+    //     fetch('http://127.0.0.1:8000/api/token/verify/', {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             'token' : accessToken
+    //         })
+    //     })
+    //     .then((data) => data.json())
+    //     .then((data) => {
+    //             if(data['detail']){
+    //                 logoutUser()
+    //             }
+    //             else{
+    //                 try{
+    //                     setAccessToken(accessToken)
+    //                     setUser(jwt_decode(accessToken))
+                        
+    //                 }
+    //                 catch{
+    //                     console.log('Problem')
+    //                     logoutUser()
+    //                 }
+    //             }
+    //         }
+    //     )
+    //     .catch((err) => {
+    //         logoutUser()
+    //         console.log(err)
+    //     })   
+    // }
+
     let contextData = {
         user: user,
         loginUser: loginUser,
         logoutUser: logoutUser,
-        authTokens: authTokens
+        refreshToken: refreshToken,
+        accessToken: accessToken
     }
 
     useEffect(() => {
-
+        
         if(loading){
             updateToken()
         }
 
-        let fourMinutes = 1000 * 60 * 4 
+        // After 1 min user will be logged out
+        let time = 216000000
         let interval = setInterval(() => {
-            if(authTokens){
+            if(accessToken){
                 updateToken()
             }
-        }, fourMinutes)
+        }, time)
         return () => clearInterval(interval)
 
-    }, [authTokens, loading])
+    }, [accessToken, refreshToken, loading])
 
     return (
         <AuthContext.Provider value={contextData}>
@@ -98,4 +174,4 @@ export const AuthProvider = (props) => {
     )
 }
 
-export default AuthProvider;
+export default AuthProvider

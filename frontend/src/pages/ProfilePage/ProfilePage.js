@@ -7,7 +7,7 @@ import '../ProfilePage/ProfilePage.css'
 import GetCookie from '../../components/GetCookie'
 
 const ProfilePage = () => {
-  const { logoutUser, authTokens, user } = useContext(AuthContext)
+  const { logoutUser, accessToken, user } = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ const ProfilePage = () => {
       headers: {
         'Content-Type': 'application/json',
         'X-CSRFToken': csrftoken,
-        'Authorization': 'Bearer ' + String(authTokens.access)
+        'Authorization': 'Bearer ' + accessToken
       }, 
       body: JSON.stringify({
         old_password: e.target.old_password.value,

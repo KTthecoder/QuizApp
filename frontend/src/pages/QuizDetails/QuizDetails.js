@@ -17,7 +17,7 @@ const QuizDetails = () => {
 
     const navigate = useNavigate()
 
-    const { authTokens, user } = useContext(AuthContext)
+    const { accessToken, user } = useContext(AuthContext)
 
     const AddToFavorite = () => {
         const csrftoken = GetCookie('csrftoken');
@@ -26,7 +26,7 @@ const QuizDetails = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             },
             body: JSON.stringify({
                 'user': user,
@@ -43,7 +43,7 @@ const QuizDetails = () => {
         <div className='QuizDetailsContainer'>
             <DrawerNav/>
             <div className="QuizDetailsBodyContainer">
-                <div className='QuizDetailsBanner'>
+                <div className='QuizDetailsBanner' style={{backgroundImage: `url(http://127.0.0.1:8000${quizDetails && quizDetails.QuizImg})`}}>
                     <div className='QuizDetailsBannerH1'>
                         <h1>{quizDetails && quizDetails.name}</h1>
                     </div>

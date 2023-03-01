@@ -57,7 +57,7 @@
 }
 
 .ListHref:hover{
-    color: rgb(15, 118, 173);
+    color: rgb(39, 139, 119);
 }
 
 .ListHref{
@@ -114,17 +114,24 @@
 
 .NewsletterInput{
     font-size: 17px;
-    padding: 12px 15px;
+    padding: 0px 15px;
+    height: 45px;
     border: none;
     outline: none;
     background-color: whitesmoke;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .NewsletterBtn{
-    padding: 11px 20px 12px 20px;
+    padding: 0px 20px 0px 20px;
     color: white;
-    background-color: rgb(15, 118, 173);
+    height: 45px;
+    background-color: rgb(39, 139, 119);
     border-radius: 0px 5px 5px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ProjectInfoDiv{

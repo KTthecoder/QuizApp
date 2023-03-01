@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 lvl = {
     ('Hard', 'Hard'),
@@ -11,7 +12,8 @@ lvl = {
 class QuizCategoryModel(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
-    icon = models.ImageField(upload_to="CategoryIcon/")
+    icon = ResizedImageField(force_format="WEBP", quality=80, upload_to="CategoryIcon/")
+    iconAlt = models.CharField(max_length=150, null=True, blank=True)
     color = models.CharField(max_length=50)
 
     def __str__(self):
@@ -22,7 +24,8 @@ class QuizModel(models.Model):
     description = models.TextField(max_length=400)
     difficultyLvl = models.CharField(choices=lvl, max_length=6, default='Easy')
     views = models.FloatField(default=0)
-    QuizImg = models.ImageField(upload_to="QuizImage/")
+    QuizImg = ResizedImageField(force_format="WEBP", quality=80, upload_to="QuizImage/")
+    QuizImgAlt = models.CharField(max_length=150, null=True, blank=True)
     slug = models.SlugField(unique=True)
 
     cateogry = models.ForeignKey(QuizCategoryModel, on_delete=models.CASCADE)
@@ -44,7 +47,8 @@ class QuestionModel(models.Model):
     ansC = models.CharField(max_length=250)
     ansD = models.CharField(max_length=250)
     correctAns = models.CharField(max_length=250)
-    questionImg = models.ImageField(upload_to="QuestionImages/")
+    questionImg = ResizedImageField(force_format="WEBP", quality=80, upload_to="QuestionImages/")
+    questionImgAlt = models.CharField(max_length=150, null=True, blank=True)
 
     quiz = models.ForeignKey(QuizModel, related_name="questionmodel", on_delete=models.CASCADE)
 

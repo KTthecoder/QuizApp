@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthContext'
 import GetCookie from '../../components/GetCookie'
 
 const RandomGamePage = () => {
-    const { authTokens } = useContext(AuthContext)
+    const { accessToken } = useContext(AuthContext)
     let { slug } = useParams()
     const [question, setQuestion] = useState()
     const [answerA, setAnswerA] = useState(null)
@@ -30,7 +30,7 @@ const RandomGamePage = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             },
         })
         .then(res => res.json())

@@ -8,7 +8,7 @@ import GetCookie from '../../components/GetCookie'
 const NormalGamePage = () => {
     const [questions, setQuestions] = useState([])
     let { slug } = useParams()
-    const { authTokens } = useContext(AuthContext)
+    const { accessToken } = useContext(AuthContext)
     const navigate = useNavigate()
     const [answersTab, setAnswersTab] = useState([])
     
@@ -19,7 +19,7 @@ const NormalGamePage = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             },
         })
         .then(res => res.json())

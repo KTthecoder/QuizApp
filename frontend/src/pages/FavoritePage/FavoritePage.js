@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import GetCookie from '../../components/GetCookie'
 
 const FavoritePage = () => {
-    const { user, authTokens } = useContext(AuthContext)
+    const { user, accessToken } = useContext(AuthContext)
     const navigate = useNavigate()
     const [favorites, setFavorites] = useState([])
 
@@ -20,7 +20,7 @@ const FavoritePage = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             }
         })
         .then(res => res.json())

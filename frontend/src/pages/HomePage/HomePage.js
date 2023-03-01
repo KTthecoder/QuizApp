@@ -16,7 +16,7 @@ const HomePage = () => {
     const [englishQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'english-quizes'}`)
     const [itQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'it-quizes'}`)
 
-    const { authTokens } = useContext(AuthContext)
+    const { accessToken } = useContext(AuthContext)
     const [myQuizes, setMyQuizes] = useState([])
 
     const MyQuizes = () => {
@@ -26,7 +26,7 @@ const HomePage = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
-                'Authorization': 'Bearer ' + String(authTokens.access)
+                'Authorization': 'Bearer ' + accessToken
             }
         })
         .then(res => res.json())
@@ -61,7 +61,7 @@ const HomePage = () => {
                         )
                         : myQuizes && myQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
-                                <div className='HomeBlocksImg' alt='React Logo' />
+                                <div className='HomeBlocksImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.QuizImg})`}} alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.name}</h1>
                                     <p className='HomeHorizontalInfoTopP'>{item.description}</p>
@@ -82,7 +82,7 @@ const HomePage = () => {
                             <p>See more</p>
                         </div>
                     </div>
-                    <div className='HomeBlocksContainer2'>
+                    <div className='HomeBlocksContainer1'>
                         {allQuizes && allQuizes['response'] == "There is not any quizes in database" ? 
                         (
                             <div>
@@ -91,7 +91,7 @@ const HomePage = () => {
                         )
                         : allQuizes && allQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
-                                <div className='HomeBlocksImg' alt='React Logo' />
+                                <div className='HomeBlocksImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.QuizImg})`}} alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.name}</h1>
                                     <p className='HomeHorizontalInfoTopP'>{item.description}</p>
@@ -112,7 +112,7 @@ const HomePage = () => {
                             <p>See more</p>
                         </div>
                     </div>
-                    <div className='HomeBlocksContainer2'>
+                    <div className='HomeBlocksContainer1'>
                         {englishQuizes && englishQuizes['response'] == "There is not any quizes in database" ? 
                         (
                             <div>
@@ -121,7 +121,7 @@ const HomePage = () => {
                         )
                         : englishQuizes && englishQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
-                                <div className='HomeBlocksImg' alt='React Logo' />
+                                <div className='HomeBlocksImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.QuizImg})`}} alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.name}</h1>
                                     <p className='HomeHorizontalInfoTopP'>{item.description}</p>
@@ -151,7 +151,7 @@ const HomePage = () => {
                         )
                         : itQuizes && itQuizes.map((item) =>(
                             <div className='HomeBlocksDiv' key={item.id} onClick={() => navigate(`/quiz/${item.slug}`)}>
-                                <div className='HomeBlocksImg' alt='React Logo' />
+                                <div className='HomeBlocksImg' style={{backgroundImage: `url(http://127.0.0.1:8000${item.QuizImg})`}} alt='React Logo' />
                                 <div className='HomeBlockslInfo'>
                                     <h1>{item.name}</h1>
                                     <p className='HomeHorizontalInfoTopP'>{item.description}</p>

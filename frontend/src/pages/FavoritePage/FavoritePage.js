@@ -44,7 +44,7 @@ const FavoritePage = () => {
                 {favorites && favorites['response'] == "User does not have any quizes"
                 ?   (
                         <div>
-                            <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>User does not have any quizes</h1>
+                            <h1 style={{color: 'white', padding: '0px 12px 0px 12px'}}>No Favorite Quizes</h1>
                         </div>
                     )
                 :   favorites && favorites.map((item) => (

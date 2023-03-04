@@ -29,8 +29,8 @@ const QuizDetails = () => {
                 'Authorization': 'Bearer ' + accessToken
             },
             body: JSON.stringify({
-                'user': user,
-                'quiz': quizDetails
+                'user': user['user_id'],
+                'quiz': quizDetails.id
             })
         })
         .then(res => res.json())

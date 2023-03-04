@@ -50,27 +50,30 @@ const AuthProvider = (props) => {
     let updateToken = async () => {
         // GetToken()
 
-        let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'refresh' : refreshToken
+        if(!loading){
+            let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'refresh' : refreshToken
+                })
             })
-        })
-        let data = await response.json()
-
-        if(response.status == 200){
-            setAccessToken(data.access)
-            setUser(jwt_decode(data.access))
-            localStorage.setItem('accessToken', JSON.stringify(data.access))
-
-            // GetToken()
+            let data = await response.json()
+    
+            if(response.status == 200){
+                setAccessToken(data.access)
+                setUser(jwt_decode(data.access))
+                localStorage.setItem('accessToken', JSON.stringify(data.access))
+    
+                // GetToken()
+            }
+            else{
+                logoutUser()
+            }
         }
-        else{
-            // logoutUser()
-        }
+        
 
         if(loading){
             setLoading(false)

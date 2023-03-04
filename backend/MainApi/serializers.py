@@ -34,6 +34,11 @@ class QuizSerializerOnly(serializers.ModelSerializer):
 
     def get_category_Name(self, quiz):
         return quiz.cateogry.name
+    
+class AddToFavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FavoriteQuizModel
+        fields = '__all__'
 
 class FavoriteQuizesSerializer(serializers.ModelSerializer):
     quizName = serializers.SerializerMethodField('get_quiz_name')

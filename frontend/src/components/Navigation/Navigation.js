@@ -55,6 +55,7 @@ const Navigation = () => {
       <Route exact path='/my-quizes' element={<PrivateRoute/>}>
         <Route exact path='/my-quizes' element={<MyQuizesPage/>}  />
       </Route>
+      
       <Route exact path='/login' element={<LoginPage/>} />
       <Route exact path='/register' element={<RegisterPage/>} />
     </Routes>

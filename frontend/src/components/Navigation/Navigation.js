@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import CategoriesPage from '../../pages/CategoriesPage/CategoriesPage'
 import CategoryQuizesPage from '../../pages/CategoryQuizesPage/CategoryQuizesPage'
 import FavoritePage from '../../pages/FavoritePage/FavoritePage'

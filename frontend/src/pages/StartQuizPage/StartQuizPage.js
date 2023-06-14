@@ -15,9 +15,6 @@ const StartQuizPage = () => {
                     <h1>Choose type of your game!</h1>
                 </div>
                 <div className='QuizStartBodyBtnsDiv'>
-                    {/* <div className='QuizStartBodyBtn' onClick={() => navigate(`/quiz/${slug}/normal`)}>
-                        <p>Normal</p>
-                    </div> */}
                     <div className='QuizStartBodyBtn' onClick={() => navigate(`/quiz/${slug}/random`)}>
                         <p>Random Questions</p>
                     </div>

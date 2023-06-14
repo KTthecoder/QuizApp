@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import '../QuizDetails/QuizDetails.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
 import { useNavigate, useParams } from 'react-router-dom'

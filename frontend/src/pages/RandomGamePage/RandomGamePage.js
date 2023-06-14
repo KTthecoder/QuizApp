@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import '../RandomGamePage/RandomGamePage.css'
 import DrawerNav from '../../components/DrawerNav/DrawerNav'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import GetCookie from '../../components/GetCookie'
 

@@ -12,7 +12,6 @@ const HomePage = () => {
     const navigate = useNavigate()
 
     const [allQuizes] = useFetch("http://127.0.0.1:8000/quiz/all")
-    // const [myQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'my-quizes'}`)
     const [englishQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'english-quizes'}`)
     const [itQuizes] = useFetch(`http://127.0.0.1:8000/quiz/${'it-quizes'}`)
 
